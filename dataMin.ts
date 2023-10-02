@@ -1,58 +1,28 @@
-import { PictureType, TextType, CanvasType, EditorType, FigureType } from "./types"
+import { SizeType, PictureType, CanvasType, EditorType } from "./types"
 
-let picture1: PictureType = {
-    id: '1',
-    pozition: {
-        x: 100,
-        y: 100,
-    },
-    size: {
-        width: 100,
-        height: 100,
-    },
-    type: 'picture',
-    url: '/1',
-}
-
-let text1: TextType = {
-    id: '1',
-    pozition: {
-        x: 100,
-        y: 100,
-    },
-    text: 'Hello',
-    type: 'text',
-    size: {
-        width: 300,
-        height: 500,
-    },
-    color: 'red',
-    fontFamily: 'Roboto',
-    fontSize: '12px',
-}
-
-let figure1: FigureType = {
-    id: '2',
-    type: 'figure',
-    pozition: {
-        x: 50,
-        y: 10,
-    },
-    size: {
-        width: 300,
-        height: 500,
-    },
-    color: 'green',
+const picture1 = {
+    type: '',
     data: ''
 }
 
-const canvas: CanvasType = {
-    picture1: ,
-    text1: ,
-    figure1: ,
-    background: '',
+const size1 = {
+    width: null,
+    height: null
 }
 
-let newCanvas: EditorType = {
-    canvas: canvas,
+const canvas1 = {
+    objects: [],
+    background: picture1,
+    size: size1
+}
+
+const template1 = {
+    id: '',
+    objects: []
+}
+
+const newCanvas = {
+    canvas: canvas1,
+    templates: template1,
+    selectBlock: []
 }

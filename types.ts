@@ -1,28 +1,27 @@
 type EditorType = {
     canvas: CanvasType
+    templates: Template
+    selectBlock: Array<string>
 }
 
-type SelectType = {
+type Template = {
     id: string
+    objects: Array<CanvasType>
 }
 
-type Shablon = {
-    id: string
+type Filter = 'red' | 'green' | 'blue' | 'whiteBlack'
 
-}
+//если пустой канвас, то значения null
 
-type Filter = {
-
-}
-
-//канвас тип канвас + айди выделенного объекта
 type CanvasType = {
-    idSelection: SelectType
-    picture: PictureType
-    text: TextType
-    figure: FigureType
-    backgroundUrl: string //картинка
-    backgroundColor: string  //сплошной цвет
+    objects: Array<PictureType | TextType | FigureType>
+    background: Picture
+    size: SizeType
+}
+
+type Picture = {
+    type: 'link' | 'base64' | 'color'
+    data: string
 }
 
 type ObjectType = {
@@ -44,9 +43,8 @@ type SizeType = {
 type PictureType = ObjectType & {
     type: 'picture'
     id: string
-    url: string  //ccылка на картинку
-    //грузим из компа или парсим дату и раздеялем картинки    
-    //одним поле нельзя!
+    pictureType: 'link' | 'base64'
+    data: string
 }
 
 type TextType = ObjectType & {
@@ -60,32 +58,17 @@ type TextType = ObjectType & {
 }
 
 type FontStyleType = {
-    bold: boolean    //?
-    italic: boolean  //?
+    bold: boolean
+    italic: boolean
 }
 
-type borderType = {
-    width: string
-    style: string
-    color: string
-}
-
-type FigureType = ObjectType & {  //как представлять фигуры на уровне данных пр-р: прямоугольник и в нем фигура
+type FigureType = ObjectType & {
     type: 'figure'
     id: string
-    color: string
-    borderBottom: borderType
-    borderLeft: borderType
-    borderRight: borderType
-    borderTop: borderType
-    borderRadius: string
-    data: string   //для svg?
+    fillColor: string
+    dataFigure: string
+    borderColor: string
 }
-
-// прямоугольник: длина, ширина, положение, цвет
-// овал: длина, ширина, border-radius(ширина/2, если длина больше ширины)
-// круг: бордер-радиус
-// треугольник: длина, ширина: 0, border-bottom, left, right, top
 
 export {
     EditorType,
@@ -93,11 +76,8 @@ export {
     ObjectType,
     PictureType,
     TextType,
-    FigureType
+    FigureType,
+    Picture,
+    SizeType,
+    FontStyleType
 }
-
-//добавить выделенный объект (выделения)
-//подумать как его реализовать
-//подумать как реализовать фигуры
-//холст на который можно накатить шаблон
-//добавить фильтр накатить куда? на объект или на весь холст? фильтр на картинку? лучше добавить на весь холст
