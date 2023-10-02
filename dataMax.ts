@@ -1,4 +1,4 @@
-import { PictureType, TextType, CanvasType, RedactorType, FigureType } from "./types"
+import { PictureType, TextType, CanvasType, EditorType, FigureType } from "./types"
 
 let picture1: PictureType = {
     id: '1',
@@ -75,11 +75,12 @@ let figure: FigureType = {
     color: 'green',
     borderColor: 'orange',
     borderSize: '1px',
-    borderType: 'solid', 
+    borderType: 'solid',
+    data: ''
 }
 
 const canvas: CanvasType = {
-    list: [picture1,picture2,text1,text2,figure],
+    list: [picture1, picture2, text1, text2, figure],
     background: ''
 }
 
