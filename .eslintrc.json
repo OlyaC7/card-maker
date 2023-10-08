@@ -3,16 +3,26 @@
         "browser": true,
         "es2021": true
     },
+    "root": true,
     "extends": [
-        "plugin:@type",
-        "eslint:recommend"
+        "plugin:@typescript-eslint/recommended",
+        "eslint:recommended",
+        "prettier",
+        "plugin:prettier/recommended"
     ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": "latest"
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
     },
     "plugins": [
-        "react"
+        "@typescript-eslint",
+        "prettier"
     ],
     "rules": {
+        "prettier/prettier": "error"
     }
 }
