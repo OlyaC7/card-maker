@@ -42,14 +42,12 @@ type SizeType = {
 
 type PictureType = ObjectType & {
     type: 'picture'
-    id: string
     pictureType: 'link' | 'base64'
     data: string
 }
 
 type TextType = ObjectType & {
     type: 'text'
-    id: string
     text: string
     color: string
     fontFamily: string
@@ -64,7 +62,6 @@ type FontStyleType = {
 
 type FigureType = ObjectType & {
     type: 'figure'
-    id: string
     fillColor: string
     dataFigure: string
     borderColor: string
@@ -72,6 +69,7 @@ type FigureType = ObjectType & {
 
 export {
     EditorType,
+    Template,
     CanvasType,
     ObjectType,
     PictureType,
