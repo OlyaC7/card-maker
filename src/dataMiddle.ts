@@ -11,7 +11,7 @@ import {
 
 const picture1: PictureType = {
   id: '1',
-  pozition: {
+  position: {
     x: 100,
     y: 100,
   },
@@ -37,7 +37,7 @@ const text1: TextType = {
   fontFamily: 'Roboto',
   fontSize: '22px',
   fontStyle: fontStyle1,
-  pozition: {
+  position: {
     x: 50,
     y: 220,
   },
@@ -60,7 +60,7 @@ const figure1: FigureType = {
   figureType: rect,
   stroke: '#4BA3B6',
   strokeWidth: '1px',
-  pozition: {
+  position: {
     x: 600,
     y: 120,
   },

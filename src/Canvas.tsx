@@ -22,9 +22,9 @@ function Canvas(props: EditorType) {
         <PictureBlock pictureBlock={newCanvas.picture1} />
         <FigureBlock
           id={newCanvas.figure1.id}
-          pozition={{
-            x: newCanvas.figure1.pozition.x,
-            y: newCanvas.figure1.pozition.y,
+          position={{
+            x: newCanvas.figure1.position.x,
+            y: newCanvas.figure1.position.y,
           }}
           size={{
             width: newCanvas.figure1.size.width,

@@ -36,7 +36,7 @@ type SizeType = {
 
 type ObjectType = {
   id: string
-  pozition: PositionType
+  position: PositionType
   size: SizeType
 }
 

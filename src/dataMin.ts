@@ -27,7 +27,7 @@ const picture1: PictureType = {
   pictureType: 'link',
   data: 'https://themaykl.ru/wp-content/uploads/shchenki-6-360x270.jpg',
   id: '8',
-  pozition: {
+  position: {
     x: 600,
     y: 600,
   },
@@ -50,7 +50,7 @@ const text1: TextType = {
   fontSize: '18px',
   fontStyle: fontStyle1,
   id: '9',
-  pozition: {
+  position: {
     x: 600,
     y: 600,
   },
@@ -81,7 +81,7 @@ const figure1: FigureType = {
   strokeWidth: '',
   figureType: rect1,
   id: '10',
-  pozition: {
+  position: {
     x: 650,
     y: 321,
   },
@@ -98,7 +98,7 @@ const figure2: FigureType = {
   strokeWidth: '',
   figureType: circ,
   id: '10',
-  pozition: {
+  position: {
     x: 650,
     y: 321,
   },

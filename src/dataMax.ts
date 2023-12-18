@@ -11,7 +11,7 @@ import {
 
 const picture1: PictureType = {
   id: '1',
-  pozition: {
+  position: {
     x: 177,
     y: 19,
   },
@@ -26,7 +26,7 @@ const picture1: PictureType = {
 
 const picture2: PictureType = {
   id: '2',
-  pozition: {
+  position: {
     x: 264,
     y: 283,
   },
@@ -41,7 +41,7 @@ const picture2: PictureType = {
 
 const picture3: PictureType = {
   id: '3',
-  pozition: {
+  position: {
     x: 180,
     y: 134,
   },
@@ -56,7 +56,7 @@ const picture3: PictureType = {
 
 const picture4: PictureType = {
   id: '4',
-  pozition: {
+  position: {
     x: 300,
     y: 127,
   },
@@ -97,7 +97,7 @@ const text1: TextType = {
   fontFamily: 'Affect',
   fontSize: '36px',
   fontStyle: fontStyle1,
-  pozition: {
+  position: {
     x: 602,
     y: 456,
   },
@@ -115,7 +115,7 @@ const text2: TextType = {
   fontFamily: 'Inter',
   fontSize: '18px',
   fontStyle: fontStyle2,
-  pozition: {
+  position: {
     x: 62,
     y: 46,
   },
@@ -133,7 +133,7 @@ const text3: TextType = {
   fontFamily: 'Roboto',
   fontSize: '22px',
   fontStyle: fontStyle3,
-  pozition: {
+  position: {
     x: 874,
     y: 321,
   },
@@ -151,7 +151,7 @@ const text4: TextType = {
   fontFamily: 'Pacifico',
   fontSize: '48px',
   fontStyle: fontStyle4,
-  pozition: {
+  position: {
     x: 354,
     y: 864,
   },
@@ -169,7 +169,7 @@ const text5: TextType = {
   fontFamily: 'Roboto',
   fontSize: '26px',
   fontStyle: fontStyle1,
-  pozition: {
+  position: {
     x: 321,
     y: 878,
   },
@@ -192,7 +192,7 @@ const figure1: FigureType = {
   figureType: rect1,
   stroke: '#4BA3B6',
   strokeWidth: '1px',
-  pozition: {
+  position: {
     x: 646,
     y: 876,
   },
@@ -209,7 +209,7 @@ const figure2: FigureType = {
   figureType: rect1,
   stroke: '#c2aed1',
   strokeWidth: '1px',
-  pozition: {
+  position: {
     x: 677,
     y: 642,
   },
@@ -226,7 +226,7 @@ const figure3: FigureType = {
   figureType: rect1,
   stroke: '#4BA3B6',
   strokeWidth: '1px',
-  pozition: {
+  position: {
     x: 534,
     y: 564,
   },
@@ -243,7 +243,7 @@ const figure4: FigureType = {
   stroke: '#1a4780',
   figureType: rect1,
   strokeWidth: '1px',
-  pozition: {
+  position: {
     x: 654,
     y: 315,
   },

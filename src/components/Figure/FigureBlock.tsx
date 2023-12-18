@@ -1,4 +1,3 @@
-import '../../types'
 import React from 'react'
 import { FigureType } from '../../types'
 import Circle from './Circle/Circle'
