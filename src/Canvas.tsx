@@ -20,22 +20,7 @@ function Canvas(props: EditorType) {
       <div>
         <TextBlock textBlock={newCanvas.text1} />
         <PictureBlock pictureBlock={newCanvas.picture1} />
-        <FigureBlock
-          id={newCanvas.figure1.id}
-          position={{
-            x: newCanvas.figure1.position.x,
-            y: newCanvas.figure1.position.y,
-          }}
-          size={{
-            width: newCanvas.figure1.size.width,
-            height: 100,
-          }}
-          type={'figure'}
-          fill={newCanvas.figure1.fill}
-          figureType={newCanvas.figure1.figureType}
-          stroke={newCanvas.figure1.stroke}
-          strokeWidth={newCanvas.figure1.strokeWidth}
-        />
+        <FigureBlock figureBlock={newCanvas.figure1} />
       </div>
     </div>
   )

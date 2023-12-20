@@ -1,19 +1,12 @@
 import React from 'react'
 import { FigureType } from '../../types'
-import Circle from './Circle/Circle'
-import Rect from './Rect/Rect'
-import Star from './Star/Star'
+type FigureBlockProps = {
+  figureBlock: FigureType
+}
 
-function FigureBlock(props: FigureType) {
-  const fill = props.fill
-  const { width, height } = props.size
-  return (
-    <div>
-      <Circle type={'circle'} cx={25} cy={25} radius={25} fill={fill} />
-      <Rect width={width} heigth={height} type={'rect'} />
-      <Star />
-    </div>
-  )
+function FigureBlock(props: FigureBlockProps) {
+  const { size, fill, figureType } = props.figureBlock
+  return <div>{(size.height, size.width, figureType, fill)}</div>
 }
 
 export default FigureBlock

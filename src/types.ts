@@ -60,24 +60,16 @@ type TextType = ObjectType & {
   fontStyle: FontStyleType
 }
 
-type RectType = {
-  type: 'rect'
-  width: number
-  heigth: number
-}
-
-type CircleType = {
-  type: 'circle'
-  radius: number
-  cx: number
-  cy: number
-  fill: string
+enum ArtType {
+  Rect,
+  Circle,
+  Star,
 }
 
 type FigureType = ObjectType & {
   type: 'figure'
   fill: string
-  figureType: RectType | CircleType
+  figureType: ArtType
   stroke: string
   strokeWidth: string
 }
@@ -94,7 +86,6 @@ export type {
   SizeType,
   FontStyleType,
   Filter,
-  RectType,
-  CircleType,
   PositionType,
+  ArtType,
 }

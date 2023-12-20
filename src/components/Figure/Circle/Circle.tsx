@@ -1,5 +1,4 @@
 import React from 'react'
-import { CircleType } from '../../../types'
 
 function Circle(props: CircleType) {
   return (

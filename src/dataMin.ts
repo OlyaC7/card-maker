@@ -8,8 +8,7 @@ import {
   EditorType,
   FontStyleType,
   FigureType,
-  RectType,
-  CircleType,
+  ArtType,
 } from './types'
 
 const background1: BackgroundType = {
@@ -60,26 +59,12 @@ const text1: TextType = {
   },
 }
 
-const rect1: RectType = {
-  type: 'rect',
-  width: 10,
-  heigth: 10,
-}
-
-const circ: CircleType = {
-  type: 'circle',
-  radius: 5,
-  cx: 0,
-  cy: 0,
-  fill: '#f8f8fa',
-}
-
 const figure1: FigureType = {
   type: 'figure',
   fill: '#ffa812',
   stroke: '',
   strokeWidth: '',
-  figureType: rect1,
+  figureType: ArtType.Rect,
   id: '10',
   position: {
     x: 650,
@@ -96,7 +81,24 @@ const figure2: FigureType = {
   fill: '#ffa812',
   stroke: '',
   strokeWidth: '',
-  figureType: circ,
+  figureType: ArtType.Circle,
+  id: '10',
+  position: {
+    x: 650,
+    y: 321,
+  },
+  size: {
+    width: 357,
+    height: 172,
+  },
+}
+
+const figure3: FigureType = {
+  type: 'figure',
+  fill: '#ffa812',
+  stroke: '',
+  strokeWidth: '',
+  figureType: ArtType.Star,
   id: '10',
   position: {
     x: 650,
@@ -109,7 +111,7 @@ const figure2: FigureType = {
 }
 
 const canvas1: CanvasType = {
-  objects: [picture1, text1, figure1, figure2],
+  objects: [picture1, text1, figure1, figure2, figure3],
   background: background1,
   size: size1,
 }
@@ -131,4 +133,5 @@ export default {
   text1,
   figure1,
   figure2,
+  figure3,
 }
