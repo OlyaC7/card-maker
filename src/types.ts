@@ -87,5 +87,5 @@ export type {
   FontStyleType,
   Filter,
   PositionType,
-  ArtType,
 }
+export { ArtType }

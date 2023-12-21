@@ -1,23 +1,31 @@
-import { RefObject, useEffect } from 'react'
+import { RefObject, useRef, useEffect } from 'react'
 import { PositionType } from '../types'
-function useDragAndDrop(
-  ref: RefObject<HTMLElement>,
-  setPos: (pos: PositionType) => void,
-) {
-  let PosX: number, PosY: number
-  function onMouseMove(e: MouseEvent) {
-    const delta = { x: e.pageX - PosX, y: e.pageY - PosY }
-    setPos({
-      x: e.pageX + delta.x,
-      y: e.pageY + delta.y,
-    })
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function useDragAndDrop(ref: RefObject<HTMLElement>, onMove: any) {
+  const startPos = useRef({
+    x: 0,
+    y: 0,
+  })
+  function onMouseMove(mouseMoveEvent: MouseEvent) {
+    const delta: PositionType = {
+      x: mouseMoveEvent.clientX - startPos.current.x,
+      y: mouseMoveEvent.clientY - startPos.current.y,
+    }
+    onMove(delta)
+  }
+  function onMouseUp() {
+    startPos.current.x = 0
+    startPos.current.y = 0
+
+    document.removeEventListener('mousemove', onMouseMove)
+    document.removeEventListener('mouseup', onMouseUp)
   }
 
-  function onMouseDown(e: MouseEvent) {
+  function onMouseDown(mouseDownEvent: MouseEvent) {
+    startPos.current.x = mouseDownEvent.clientX
+    startPos.current.y = mouseDownEvent.clientY
     document.addEventListener('mousemove', onMouseMove)
-
-    PosX = e.clientX
-    PosY = e.clientY
+    document.addEventListener('mouseup', onMouseUp)
   }
 
   useEffect(() => {
@@ -27,5 +35,4 @@ function useDragAndDrop(
     }
   })
 }
-
 export { useDragAndDrop }

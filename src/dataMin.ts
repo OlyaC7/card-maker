@@ -27,8 +27,8 @@ const picture1: PictureType = {
   data: 'https://themaykl.ru/wp-content/uploads/shchenki-6-360x270.jpg',
   id: '8',
   position: {
-    x: 600,
-    y: 600,
+    x: 60,
+    y: 60,
   },
   size: {
     width: 360,

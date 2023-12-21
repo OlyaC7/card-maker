@@ -6,7 +6,7 @@ import {
   EditorType,
   FigureType,
   Template,
-  RectType,
+  ArtType,
 } from './types'
 
 const picture1: PictureType = {
@@ -179,17 +179,11 @@ const text5: TextType = {
   },
 }
 
-const rect1: RectType = {
-  type: 'rect',
-  width: 20,
-  heigth: 50,
-}
-
 const figure1: FigureType = {
   type: 'figure',
   id: '11',
   fill: '#755d9a',
-  figureType: rect1,
+  figureType: ArtType.Rect,
   stroke: '#4BA3B6',
   strokeWidth: '1px',
   position: {
@@ -206,7 +200,7 @@ const figure2: FigureType = {
   type: 'figure',
   id: '12',
   fill: '#C46B6B',
-  figureType: rect1,
+  figureType: ArtType.Rect,
   stroke: '#c2aed1',
   strokeWidth: '1px',
   position: {
@@ -223,7 +217,7 @@ const figure3: FigureType = {
   type: 'figure',
   id: '13',
   fill: '#3A2C8E',
-  figureType: rect1,
+  figureType: ArtType.Rect,
   stroke: '#4BA3B6',
   strokeWidth: '1px',
   position: {
@@ -241,7 +235,7 @@ const figure4: FigureType = {
   id: '14',
   fill: '#91DD62',
   stroke: '#1a4780',
-  figureType: rect1,
+  figureType: ArtType.Rect,
   strokeWidth: '1px',
   position: {
     x: 654,

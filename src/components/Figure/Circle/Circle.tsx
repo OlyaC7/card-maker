@@ -1,15 +1,15 @@
 import React from 'react'
 
-function Circle(props: CircleType) {
+function Circle() {
   return (
-    <svg className="" width="50" height="50">
-      <ellipse
-        fill={props.fill}
-        cx={props.cx}
-        cy={props.cy}
-        rx={props.radius}
-        ry={props.radius}
-      />
+    <svg
+      width="491"
+      height="501"
+      viewBox="0 0 491 501"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <ellipse cx="245.5" cy="250.5" rx="245.5" ry="250.5" fill="#355621" />
     </svg>
   )
 }

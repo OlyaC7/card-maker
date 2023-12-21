@@ -17,10 +17,12 @@ function Canvas(props: EditorType) {
         backgroundSize: 'cover',
       }}
     >
-      <div>
-        <TextBlock textBlock={newCanvas.text1} />
-        <PictureBlock pictureBlock={newCanvas.picture1} />
-        <FigureBlock figureBlock={newCanvas.figure1} />
+      <div style={{ position: 'relative' }}>
+        <>
+          <TextBlock textBlock={newCanvas.text1} />
+          <PictureBlock pictureBlock={newCanvas.picture1} />
+          <FigureBlock figureBlock={newCanvas.figure1} />
+        </>
       </div>
     </div>
   )
