@@ -22,10 +22,14 @@ function useDragAndDrop(ref: RefObject<HTMLElement>, onMove: any) {
   }
 
   function onMouseDown(mouseDownEvent: MouseEvent) {
+    if (mouseDownEvent.defaultPrevented) {
+      return
+    }
     startPos.current.x = mouseDownEvent.clientX
     startPos.current.y = mouseDownEvent.clientY
     document.addEventListener('mousemove', onMouseMove)
     document.addEventListener('mouseup', onMouseUp)
+    mouseDownEvent.preventDefault()
   }
 
   useEffect(() => {
