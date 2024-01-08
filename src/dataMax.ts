@@ -105,6 +105,7 @@ const text1: TextType = {
     width: 50,
     height: 36,
   },
+  backgroundColor: '#ffffff',
 }
 
 const text2: TextType = {
@@ -123,6 +124,7 @@ const text2: TextType = {
     width: 50,
     height: 18,
   },
+  backgroundColor: '#ffffff',
 }
 
 const text3: TextType = {
@@ -141,6 +143,7 @@ const text3: TextType = {
     width: 50,
     height: 22,
   },
+  backgroundColor: '#ffffff',
 }
 
 const text4: TextType = {
@@ -159,6 +162,7 @@ const text4: TextType = {
     width: 150,
     height: 48,
   },
+  backgroundColor: '#ffffff',
 }
 
 const text5: TextType = {
@@ -177,6 +181,7 @@ const text5: TextType = {
     width: 150,
     height: 26,
   },
+  backgroundColor: '#ffffff',
 }
 
 const figure1: FigureType = {

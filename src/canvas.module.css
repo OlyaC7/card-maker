@@ -1,5 +1,7 @@
-canvas {
-    width: 750px;
-    height: 750px;
-    box-shadow: 1px sandybrown;
+.canvas {
+    position: relative;
+    box-shadow: 0 0 4px 0 rgba(238, 92, 51, 0.8);
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
 }

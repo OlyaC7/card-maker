@@ -1,15 +1,25 @@
 import React from 'react'
+import { FigureType } from '../../../types'
+type circleBlockType = {
+  circleType: FigureType
+}
 
-function Circle() {
+function Circle(props: circleBlockType) {
+  const { size, fill } = props.circleType
   return (
     <svg
-      width="491"
-      height="501"
-      viewBox="0 0 491 501"
-      fill="none"
+      width={size.width}
+      height={size.height}
+      fill={fill}
       xmlns="http://www.w3.org/2000/svg"
     >
-      <ellipse cx="245.5" cy="250.5" rx="245.5" ry="250.5" fill="#355621" />
+      <ellipse
+        cx={size.width / 2}
+        cy={size.height / 2}
+        rx={size.width / 2}
+        ry={size.height / 2}
+        fill={fill}
+      />
     </svg>
   )
 }

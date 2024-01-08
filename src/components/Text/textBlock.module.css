@@ -1,0 +1,15 @@
+.textarea {
+    border: none;
+    resize: none;
+    padding: unset;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.spanC {
+    width: 10px;
+    height: 10px;
+    background: #727483;
+    border-radius: 10px;
+}

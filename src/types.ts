@@ -58,12 +58,14 @@ type TextType = ObjectType & {
   fontFamily: string
   fontSize: string
   fontStyle: FontStyleType
+  backgroundColor: string
 }
 
 enum ArtType {
   Rect,
   Circle,
   Star,
+  Arrow,
 }
 
 type FigureType = ObjectType & {
@@ -72,6 +74,17 @@ type FigureType = ObjectType & {
   figureType: ArtType
   stroke: string
   strokeWidth: string
+}
+
+enum ButtonType {
+  buttonText,
+  buttonAddText,
+  buttonPicture,
+  buttonFigure,
+  buttonUndo,
+  buttonSave,
+  buttonRedo,
+  buttonAddPicture,
 }
 
 export type {
@@ -88,4 +101,5 @@ export type {
   Filter,
   PositionType,
 }
-export { ArtType }
+
+export { ArtType, ButtonType }

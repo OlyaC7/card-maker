@@ -16,8 +16,8 @@ const picture1: PictureType = {
     y: 100,
   },
   size: {
-    width: 700,
-    height: 100,
+    width: 400,
+    height: 300,
   },
   type: 'picture',
   data: 'https://prixoxo.ru/uploads/posts/2021-09/krasivye-kartinki-priroda-na-rabochij-stol-1920h1080-9.jpg',
@@ -45,6 +45,7 @@ const text1: TextType = {
     width: 50,
     height: 22,
   },
+  backgroundColor: '#ffffff',
 }
 
 const figure1: FigureType = {
@@ -70,7 +71,7 @@ const canvas: CanvasType = {
     data: '#500500',
   },
   size: {
-    width: 300,
+    width: 700,
     height: 500,
   },
   objects: [picture1, text1, figure1],

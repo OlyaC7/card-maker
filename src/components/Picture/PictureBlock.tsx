@@ -27,8 +27,8 @@ function PictureBlock(props: PictureBlockProps) {
   // const { createChangeSizeAction } = useAppActions()
   // console.log(state)
 
-  const refSize = useRef<HTMLDivElement>(null)
-  useDragAndDrop(refSize, (delta: PositionType) => {
+  const refSizeTopLeft = useRef<HTMLDivElement>(null)
+  useDragAndDrop(refSizeTopLeft, (delta: PositionType) => {
     const newSettings = {
       position: {
         x: settings.position.x + delta.x,
@@ -37,6 +37,51 @@ function PictureBlock(props: PictureBlockProps) {
       size: {
         width: settings.size.width - delta.x,
         height: settings.size.height - delta.y,
+      },
+    }
+
+    setSettings(newSettings)
+  })
+  const refSizeTopRight = useRef<HTMLDivElement>(null)
+  useDragAndDrop(refSizeTopRight, (delta: PositionType) => {
+    const newSettings = {
+      position: {
+        x: settings.position.x,
+        y: settings.position.y + delta.y,
+      },
+      size: {
+        width: settings.size.width + delta.x,
+        height: settings.size.height - delta.y,
+      },
+    }
+
+    setSettings(newSettings)
+  })
+  const refSizeBottnRight = useRef<HTMLDivElement>(null)
+  useDragAndDrop(refSizeBottnRight, (delta: PositionType) => {
+    const newSettings = {
+      position: {
+        x: settings.position.x,
+        y: settings.position.y,
+      },
+      size: {
+        width: settings.size.width + delta.x,
+        height: settings.size.height + delta.y,
+      },
+    }
+
+    setSettings(newSettings)
+  })
+  const refSize = useRef<HTMLDivElement>(null)
+  useDragAndDrop(refSize, (delta: PositionType) => {
+    const newSettings = {
+      position: {
+        x: settings.position.x + delta.x,
+        y: settings.position.y,
+      },
+      size: {
+        width: settings.size.width - delta.x,
+        height: settings.size.height + delta.y,
       },
     }
 
@@ -60,10 +105,43 @@ function PictureBlock(props: PictureBlockProps) {
         draggable="false"
       ></img>
       <span
-        ref={refSize}
+        ref={refSizeTopLeft}
         style={{
           position: 'absolute',
           top: -5,
+          left: -5,
+          width: 10 + 'px',
+          height: 10 + 'px',
+          background: '#000',
+        }}
+      ></span>
+      <span
+        ref={refSizeTopRight}
+        style={{
+          position: 'absolute',
+          top: -5,
+          left: -5 + settings.size.width,
+          width: 10 + 'px',
+          height: 10 + 'px',
+          background: '#000',
+        }}
+      ></span>
+      <span
+        ref={refSizeBottnRight}
+        style={{
+          position: 'absolute',
+          top: -5 + settings.size.height,
+          left: -5 + settings.size.width,
+          width: 10 + 'px',
+          height: 10 + 'px',
+          background: '#000',
+        }}
+      ></span>
+      <span
+        ref={refSize}
+        style={{
+          position: 'absolute',
+          top: -5 + settings.size.height,
           left: -5,
           width: 10 + 'px',
           height: 10 + 'px',

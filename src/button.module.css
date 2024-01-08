@@ -1,6 +1,176 @@
-.ButtonG {
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap');
+
+.button {
     background-color: rgb(125, 145, 209);
-    padding: 20px;
-    width: 20%;
+    border: none;
 }
 
+.textButton {
+    font: 11px/1 'Lato', sans-serif;
+    cursor: pointer;
+    position: relative;
+    width: 86px;
+    height: 74px;
+    border: none;
+    color: #92989E;
+    background: none;
+    text-transform: uppercase;
+}
+
+.textButton::before {
+    content: '';
+    display: block;
+    background: url('../src/img/textLogo.svg');
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    margin: 0 auto 5px;
+}
+
+.textButton:hover {
+    color: #ee5c33cc;
+    background-color: #F0F0F0;
+}
+
+.active {
+    background-color: #F0F0F0;
+    display: none;
+}
+
+.textButton:hover.textButton::before {
+    background: url('../src/img/textLogoOrange.svg');
+}
+
+.pictureButton {
+    font: 11px/1 'Lato', sans-serif;
+    cursor: pointer;
+    position: relative;
+    width: 86px;
+    height: 74px;
+    border: none;
+    color: #92989E;
+    background: none;
+    text-transform: uppercase;
+}
+
+
+.pictureButton::before {
+    content: '';
+    display: block;
+    background: url('../src/img/pictureLogo.svg');
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    margin: 0 auto 5px;
+}
+
+.pictureButton:hover {
+    color: #ee5c33cc;
+}
+
+.pictureButton:hover.pictureButton::before {
+    background: url('../src/img/pictureLogoOrange.svg');
+}
+
+.figureButton {
+    font: 11px/1 'Lato', sans-serif;
+    cursor: pointer;
+    position: relative;
+    width: 86px;
+    height: 74px;
+    border: none;
+    color: #92989E;
+    background: none;
+    text-transform: uppercase;
+}
+
+.figureButton::before {
+    content: '';
+    display: block;
+    background: url('../src/img/elementsLogo.svg');
+    width: 24px;
+    height: 24px;
+    text-align: center;
+    margin: 0 auto 5px;
+}
+
+.figureButton:hover {
+    color: #ee5c33cc;
+}
+
+.figureButton:hover.figureButton::before {
+    background: url('../src/img/elementsLogoOrange.svg');
+}
+
+.saveButton {
+    background-color: #36364E;
+    color: #FFFFFF;
+    font-size: 15px;
+    padding: 10px 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.saveButton:hover {
+    background-color: #22223A;
+}
+
+.undoButton {
+    background: none;
+    color: #92989E;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin: 8px 20px;
+}
+
+.undoButton::before {
+    content: '';
+    position: absolute;
+    display: block;
+    background: url('../src/img/undoLogo.svg');
+    width: 16px;
+    height: 16px;
+    left: 0;
+}
+
+.undoButton:hover {
+    color: #FFFFFF;
+}
+
+
+.undoButton:hover.undoButton::before {
+    background: url('../src/img/undoLogoWhite.svg');
+}
+
+.redoButton {
+    background: none;
+    color: #92989E;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    padding-left: 25px;
+    margin-top: 8px;
+}
+
+.redoButton::before {
+    content: '';
+    position: absolute;
+    display: block;
+    background: url('../src/img/redoLogo.svg');
+    width: 16px;
+    height: 16px;
+    left: 0;
+}
+
+.redoButton:hover {
+    color: #FFFFFF;
+}
+
+
+.redoButton:hover.redoButton::before {
+    background: url('../src/img/redoLogoWhite.svg');
+}

@@ -1,6 +1,9 @@
 .MainPanel {
-    padding: 50px 50px;
+    padding: 50px 50px 100px;
     max-width: 1000px;
     width: 100%;
+    background-color: #e0e0e0;
+    position: relative;
+    overflow: hidden;
 }
 

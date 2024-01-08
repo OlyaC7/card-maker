@@ -1,9 +1,19 @@
 import React from 'react'
+import { FigureType } from '../../../types'
+type rectBlockType = {
+  rectType: FigureType
+}
 
-function Rect() {
+function Rect(props: rectBlockType) {
+  const { size, fill } = props.rectType
   return (
-    <svg className="">
-      <rect fill={'#e9967a'} />
+    <svg
+      width={size.width}
+      height={size.height}
+      fill={fill}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect width={size.width} height={size.height} fill={fill} />
     </svg>
   )
 }

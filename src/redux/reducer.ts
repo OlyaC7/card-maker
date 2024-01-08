@@ -1,22 +1,80 @@
+import { Action, EditorActions } from './actions'
+import { EditorType, TextType, PictureType } from '../types'
 import { combineReducers } from 'redux'
-import { Action } from './actions/imageActions'
+import newCanvas from '../dataMiddle'
+import { generateRandomId } from '../utils/generateRandomId'
 
-const imageReducer = (
-  initialState: { width: 200; height: 200 },
-  action: Action,
-) => {
+const editorReducer = (state: EditorType = newCanvas, action: Action) => {
+  console.log(action.type)
   switch (action.type) {
-    case 'CHANGE_SIZE': {
+    case EditorActions.ADD_TEXTBLOCK: {
+      console.log('5455')
+      const newText: TextType = {
+        type: 'text',
+        text: 'Текст',
+        color: '#000000',
+        fontFamily: 'Roboto',
+        fontSize: '18px',
+        backgroundColor: 'unset',
+        fontStyle: {
+          bold: false,
+          italic: false,
+        },
+        id: generateRandomId(),
+        position: {
+          x: 0,
+          y: 0,
+        },
+        size: {
+          width: 100,
+          height: 50,
+        },
+      }
+
       const newState = {
-        width: action.payload.newSize.width,
-        height: action.payload.newSize.height,
+        ...state,
+        canvas: {
+          ...state.canvas,
+          objects: [...state.canvas.objects, { ...newText }],
+        },
       }
       return newState
     }
+    case EditorActions.ADD_PICTUREBLOCK: {
+      console.log('5455')
+      const newPicture: PictureType = {
+        type: 'picture',
+        pictureType: 'link',
+        data: 'https://a.d-cd.net/c45e729s-1920.jpg',
+        id: generateRandomId(),
+        position: {
+          x: 0,
+          y: 0,
+        },
+        size: {
+          width: 100,
+          height: 50,
+        },
+      }
+
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          objects: [...state.canvas.objects, { ...newPicture }],
+        },
+      }
+      return newState
+    }
+
+    default:
+      console.log('5555555')
+      return { ...state }
   }
 }
 
 const rootReducer = combineReducers({
-  image: imageReducer,
+  editor: editorReducer,
 })
+
 export { rootReducer }

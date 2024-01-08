@@ -1,15 +1,22 @@
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { rootReducer } from './reducer'
+import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { createChangeSizeAction } from './actionCreators/imageActionCreators'
+import * as ActionCreator from './actionCreators'
 
+// Выведение типа `RootState` из хранилища
 type RootState = ReturnType<typeof rootReducer>
 
+// Используйте во всем приложении вместо `useSelector`
 const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
 
 const useAppActions = () => {
   const dispatch = useDispatch()
-  return bindActionCreators({ ...createChangeSizeAction }, dispatch)
+  return bindActionCreators(
+    {
+      ...ActionCreator,
+    },
+    dispatch,
+  )
 }
 
-export { useAppSelector, useAppActions, type RootState }
+export { useAppSelector, useAppActions }

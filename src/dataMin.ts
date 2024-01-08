@@ -17,8 +17,8 @@ const background1: BackgroundType = {
 }
 
 const size1: SizeType = {
-  width: 1024,
-  height: 768,
+  width: 718,
+  height: 512,
 }
 
 const picture1: PictureType = {
@@ -47,15 +47,16 @@ const text1: TextType = {
   color: '#00ff7f',
   fontFamily: 'Roboto',
   fontSize: '18px',
+  backgroundColor: 'unset',
   fontStyle: fontStyle1,
   id: '9',
   position: {
-    x: 600,
-    y: 600,
+    x: 0,
+    y: 110,
   },
   size: {
-    width: 50,
-    height: 18,
+    width: 100,
+    height: 50,
   },
 }
 
@@ -134,4 +135,5 @@ export default {
   figure1,
   figure2,
   figure3,
+  canvas1,
 }
