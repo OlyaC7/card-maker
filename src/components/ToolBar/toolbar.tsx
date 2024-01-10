@@ -8,6 +8,18 @@ function ToolBar() {
       <Button
         buttonBlock={{ text: 'Add Text', button: ButtonType.buttonAddText }}
       />
+      <Button
+        buttonBlock={{
+          text: 'Delete Text',
+          button: ButtonType.buttonDeleteBlock,
+        }}
+      />
+      <Button
+        buttonBlock={{
+          text: 'Add Picture',
+          button: ButtonType.buttonAddPicture,
+        }}
+      />
     </div>
   )
 }

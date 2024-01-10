@@ -11,8 +11,11 @@ type ButtonBlockProps = {
 }
 
 function Button(props: ButtonBlockProps) {
-  const { createAddTextBlockAction, createAddPictureBlockAction } =
-    useAppActions()
+  const {
+    createAddTextBlockAction,
+    createAddPictureBlockAction,
+    createDeleteBlockAction,
+  } = useAppActions()
 
   switch (props.buttonBlock.button) {
     case ButtonType.buttonText:
@@ -26,10 +29,7 @@ function Button(props: ButtonBlockProps) {
     case ButtonType.buttonPicture:
       return (
         <div>
-          <button
-            className={styles.pictureButton}
-            onClick={() => createAddPictureBlockAction()}
-          >
+          <button className={styles.pictureButton}>
             {props.buttonBlock.text}
           </button>
         </div>
@@ -73,6 +73,28 @@ function Button(props: ButtonBlockProps) {
           <button
             className={styles.textAddTextButton}
             onClick={() => createAddTextBlockAction()}
+          >
+            {props.buttonBlock.text}
+          </button>
+        </div>
+      )
+    case ButtonType.buttonAddPicture:
+      return (
+        <div>
+          <button
+            className={styles.textAddTextButton}
+            onClick={() => createAddPictureBlockAction()}
+          >
+            {props.buttonBlock.text}
+          </button>
+        </div>
+      )
+    case ButtonType.buttonDeleteBlock:
+      return (
+        <div>
+          <button
+            className={styles.textAddTextButton}
+            onClick={() => createDeleteBlockAction()}
           >
             {props.buttonBlock.text}
           </button>

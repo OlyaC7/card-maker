@@ -8,7 +8,6 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
   console.log(action.type)
   switch (action.type) {
     case EditorActions.ADD_TEXTBLOCK: {
-      console.log('5455')
       const newText: TextType = {
         type: 'text',
         text: 'Текст',
@@ -41,7 +40,6 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
       return newState
     }
     case EditorActions.ADD_PICTUREBLOCK: {
-      console.log('5455')
       const newPicture: PictureType = {
         type: 'picture',
         pictureType: 'link',
@@ -66,9 +64,18 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
       }
       return newState
     }
+    case EditorActions.CHANGE_TEXT: {
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          objects: [...state.canvas.objects],
+        },
+      }
+      return newState
+    }
 
     default:
-      console.log('5555555')
       return { ...state }
   }
 }

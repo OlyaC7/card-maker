@@ -13,12 +13,12 @@ function Canvas() {
     <div
       className={styles.canvas}
       style={{
-        width: settings.size.width,
-        height: settings.size.height,
-        background: settings.background.data,
+        width: settings?.size.width,
+        height: settings?.size.height,
+        background: settings?.background.data,
       }}
     >
-      {objects.map((object, index) => {
+      {objects?.map((object, index) => {
         switch (object.type) {
           case 'text':
             return <TextBlock key={index} textBlock={object} />

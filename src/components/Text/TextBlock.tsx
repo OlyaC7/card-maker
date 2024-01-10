@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react'
 import { PositionType, TextType } from '../../types'
 import styles from './textBlock.module.css'
 import { useDragAndDrop } from '../../hooks/useDragAndDrop'
+// import { useAppActions, useAppSelector } from '../../redux/hooks'
 type TextBlockProps = {
   textBlock: TextType
 }
@@ -9,6 +10,14 @@ type TextBlockProps = {
 function TextBlock(props: TextBlockProps) {
   const { id, color, fontFamily, text, position, size, backgroundColor } =
     props.textBlock
+
+  function changeText(event: React.ChangeEvent<HTMLTextAreaElement>) {
+    if (!event.defaultPrevented) {
+      const text = event.target.value
+      event.preventDefault()
+      return text
+    }
+  }
   const ref = useRef<HTMLDivElement>(null)
   const [settings, setSettings] = useState({ position, size })
   useDragAndDrop(ref, (delta: PositionType) => {
@@ -83,11 +92,6 @@ function TextBlock(props: TextBlockProps) {
     setSettings(newSettings)
   })
 
-  // const [postContent, setPostContent] = useState(text)
-  // function handleChange(e) {
-  //   setPostContent(e.target.value)
-  // }
-
   return (
     <div
       id={id}
@@ -108,6 +112,7 @@ function TextBlock(props: TextBlockProps) {
           backgroundColor,
         }}
         value={text}
+        onChange={(event) => changeText(event)}
       ></textarea>
       <span
         ref={refSizeTopLeft}

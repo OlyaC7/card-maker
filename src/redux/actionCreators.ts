@@ -12,4 +12,21 @@ function createAddPictureBlockAction() {
   }
 }
 
-export { createAddTextBlockAction, createAddPictureBlockAction }
+function createDeleteBlockAction() {
+  return {
+    type: EditorActions.DELETE_TEXTBLOCK,
+  }
+}
+
+function createChangeTextAction() {
+  return {
+    type: EditorActions.CHANGE_TEXT,
+  }
+}
+
+export {
+  createAddTextBlockAction,
+  createAddPictureBlockAction,
+  createDeleteBlockAction,
+  createChangeTextAction,
+}

@@ -85,6 +85,7 @@ enum ButtonType {
   buttonSave,
   buttonRedo,
   buttonAddPicture,
+  buttonDeleteBlock,
 }
 
 export type {
