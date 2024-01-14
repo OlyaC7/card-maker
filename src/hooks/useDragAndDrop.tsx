@@ -1,7 +1,17 @@
 import { RefObject, useRef, useEffect } from 'react'
 import { PositionType } from '../types'
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function useDragAndDrop(ref: RefObject<HTMLElement>, onMove: any) {
+
+type UseDragAndDropArgs = {
+  ref: RefObject<HTMLElement>,
+  onMove: (delta: PositionType) => void,
+  onMouseUp: () => void,
+}
+
+function useDragAndDrop({
+  onMouseUp: _onMouseUp,
+  onMove,
+  ref
+}: UseDragAndDropArgs) {
   const startPos = useRef({
     x: 0,
     y: 0,
@@ -11,11 +21,14 @@ function useDragAndDrop(ref: RefObject<HTMLElement>, onMove: any) {
       x: mouseMoveEvent.clientX - startPos.current.x,
       y: mouseMoveEvent.clientY - startPos.current.y,
     }
+    console.log('dnd inside move')
     onMove(delta)
   }
   function onMouseUp() {
     startPos.current.x = 0
     startPos.current.y = 0
+
+    _onMouseUp()
 
     document.removeEventListener('mousemove', onMouseMove)
     document.removeEventListener('mouseup', onMouseUp)
@@ -35,7 +48,9 @@ function useDragAndDrop(ref: RefObject<HTMLElement>, onMove: any) {
   useEffect(() => {
     ref.current!.addEventListener('mousedown', onMouseDown)
     return () => {
-      ref.current!.removeEventListener('mousedown', onMouseDown)
+      if (ref.current) {
+        ref.current!.removeEventListener('mousedown', onMouseDown)
+      }
     }
   })
 }

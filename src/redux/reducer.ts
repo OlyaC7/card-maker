@@ -74,7 +74,19 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
       }
       return newState
     }
+    case EditorActions.CHANGE_SELECTION: {
+      const figureId = action.payload.id
 
+      const isFigureSelected = state.selectBlock.find(x => x === figureId)
+      const selectBlock = isFigureSelected
+        ? state.selectBlock.filter(x => x !== figureId)
+        : [...state.selectBlock, figureId]
+        
+      return {
+        ...state,
+        selectBlock
+      }
+    }
     default:
       return { ...state }
   }

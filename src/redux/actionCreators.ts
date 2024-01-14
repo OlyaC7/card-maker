@@ -24,9 +24,19 @@ function createChangeTextAction() {
   }
 }
 
+function createChangeSelectionAction(blockId: string) {
+  return {
+    type: EditorActions.CHANGE_SELECTION,
+    payload: {
+      id: blockId
+    }
+  }
+}
+
 export {
   createAddTextBlockAction,
   createAddPictureBlockAction,
   createDeleteBlockAction,
   createChangeTextAction,
+  createChangeSelectionAction,
 }

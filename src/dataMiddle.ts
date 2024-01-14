@@ -85,7 +85,7 @@ const template1: Template = {
 const newCanvas: EditorType = {
   canvas: canvas,
   templates: template1,
-  selectBlock: ['1', '2'],
+  selectBlock: [],
 }
 
 export default newCanvas

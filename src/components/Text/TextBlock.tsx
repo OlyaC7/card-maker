@@ -1,15 +1,25 @@
-import React, { useRef, useState } from 'react'
-import { PositionType, TextType } from '../../types'
+import { TextType } from '../../types'
 import styles from './textBlock.module.css'
-import { useDragAndDrop } from '../../hooks/useDragAndDrop'
-// import { useAppActions, useAppSelector } from '../../redux/hooks'
-type TextBlockProps = {
+import { SelectedBlock, SelectedBlockProps } from '../SelectedBlock/SelectedBlock'
+
+type TextBlockProps = Omit<SelectedBlockProps, 'component'> & {
   textBlock: TextType
 }
 
 function TextBlock(props: TextBlockProps) {
-  const { id, color, fontFamily, text, position, size, backgroundColor } =
-    props.textBlock
+  const {
+    textBlock: {
+      color,
+      fontFamily,
+      text,
+      backgroundColor
+    },
+    changeSelection,
+    selected,
+    objectInfo,
+    updatePosition,
+    updateSize,
+  } = props
 
   function changeText(event: React.ChangeEvent<HTMLTextAreaElement>) {
     if (!event.defaultPrevented) {
@@ -18,140 +28,30 @@ function TextBlock(props: TextBlockProps) {
       return text
     }
   }
-  const ref = useRef<HTMLDivElement>(null)
-  const [settings, setSettings] = useState({ position, size })
-  useDragAndDrop(ref, (delta: PositionType) => {
-    const newSettings = {
-      position: {
-        x: settings.position.x + delta.x,
-        y: settings.position.y + delta.y,
-      },
-      size: settings.size,
-    }
-
-    setSettings(newSettings)
-  })
-  const refSizeTopLeft = useRef<HTMLDivElement>(null)
-  useDragAndDrop(refSizeTopLeft, (delta: PositionType) => {
-    const newSettings = {
-      position: {
-        x: settings.position.x + delta.x,
-        y: settings.position.y + delta.y,
-      },
-      size: {
-        width: settings.size.width - delta.x,
-        height: settings.size.height - delta.y,
-      },
-    }
-
-    setSettings(newSettings)
-  })
-  const refSizeTopRight = useRef<HTMLDivElement>(null)
-  useDragAndDrop(refSizeTopRight, (delta: PositionType) => {
-    const newSettings = {
-      position: {
-        x: settings.position.x,
-        y: settings.position.y + delta.y,
-      },
-      size: {
-        width: settings.size.width + delta.x,
-        height: settings.size.height - delta.y,
-      },
-    }
-
-    setSettings(newSettings)
-  })
-  const refSizeBottnRight = useRef<HTMLDivElement>(null)
-  useDragAndDrop(refSizeBottnRight, (delta: PositionType) => {
-    const newSettings = {
-      position: {
-        x: settings.position.x,
-        y: settings.position.y,
-      },
-      size: {
-        width: settings.size.width + delta.x,
-        height: settings.size.height + delta.y,
-      },
-    }
-
-    setSettings(newSettings)
-  })
-  const refSize = useRef<HTMLDivElement>(null)
-  useDragAndDrop(refSize, (delta: PositionType) => {
-    const newSettings = {
-      position: {
-        x: settings.position.x + delta.x,
-        y: settings.position.y,
-      },
-      size: {
-        width: settings.size.width - delta.x,
-        height: settings.size.height + delta.y,
-      },
-    }
-
-    setSettings(newSettings)
-  })
 
   return (
-    <div
-      id={id}
-      ref={ref}
-      style={{
-        width: settings.size.width,
-        height: settings.size.height,
-        top: settings.position.y,
-        position: 'absolute',
-        left: settings.position.x,
-      }}
-    >
-      <textarea
-        className={styles.textarea}
-        style={{
-          color,
-          fontFamily,
-          backgroundColor,
-        }}
-        value={text}
-        onChange={(event) => changeText(event)}
-      ></textarea>
-      <span
-        ref={refSizeTopLeft}
-        className={styles.spanC}
-        style={{
-          position: 'absolute',
-          top: -5,
-          left: -5,
-        }}
-      ></span>
-      <span
-        ref={refSizeTopRight}
-        className={styles.spanC}
-        style={{
-          position: 'absolute',
-          top: -5,
-          left: -5 + settings.size.width,
-        }}
-      ></span>
-      <span
-        ref={refSizeBottnRight}
-        className={styles.spanC}
-        style={{
-          position: 'absolute',
-          top: -5 + settings.size.height,
-          left: -5 + settings.size.width,
-        }}
-      ></span>
-      <span
-        ref={refSize}
-        className={styles.spanC}
-        style={{
-          position: 'absolute',
-          top: -5 + settings.size.height,
-          left: -5,
-        }}
-      ></span>
-    </div>
+    <SelectedBlock
+      updatePosition={updatePosition}
+      updateSize={updateSize}
+      selected={selected}
+      objectInfo={objectInfo}
+      changeSelection={changeSelection}
+      component={
+        <textarea
+          className={styles.textarea}
+          style={{
+            color,
+            fontFamily,
+            backgroundColor,
+          }}
+          value={text}
+          onChange={(event) => changeText(event)}
+        ></textarea>
+      }
+    />
   )
 }
 
-export default TextBlock
+export {
+  TextBlock
+}
