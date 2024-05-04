@@ -1,6 +1,9 @@
 import { TextType } from '../../types'
 import styles from './textBlock.module.css'
-import { SelectedBlock, SelectedBlockProps } from '../SelectedBlock/SelectedBlock'
+import {
+  SelectedBlock,
+  SelectedBlockProps,
+} from '../SelectedBlock/SelectedBlock'
 
 type TextBlockProps = Omit<SelectedBlockProps, 'component'> & {
   textBlock: TextType
@@ -8,12 +11,7 @@ type TextBlockProps = Omit<SelectedBlockProps, 'component'> & {
 
 function TextBlock(props: TextBlockProps) {
   const {
-    textBlock: {
-      color,
-      fontFamily,
-      text,
-      backgroundColor
-    },
+    textBlock: { color, fontFamily, text, backgroundColor },
     changeSelection,
     selected,
     objectInfo,
@@ -52,6 +50,4 @@ function TextBlock(props: TextBlockProps) {
   )
 }
 
-export {
-  TextBlock
-}
+export { TextBlock }

@@ -1,4 +1,4 @@
-import { EditorActions } from './actions'
+import { EditorActions, UpdateSettingsAction } from './actions'
 
 function createAddTextBlockAction() {
   return {
@@ -14,7 +14,7 @@ function createAddPictureBlockAction() {
 
 function createDeleteBlockAction() {
   return {
-    type: EditorActions.DELETE_TEXTBLOCK,
+    type: EditorActions.DELETE_SELECTED_ITEMS,
   }
 }
 
@@ -28,8 +28,17 @@ function createChangeSelectionAction(blockId: string) {
   return {
     type: EditorActions.CHANGE_SELECTION,
     payload: {
-      id: blockId
-    }
+      id: blockId,
+    },
+  }
+}
+
+function createChangeSettingsAction(
+  payload: Pick<UpdateSettingsAction, 'payload'>,
+) {
+  return {
+    type: EditorActions.UPDATE_SETTINGS,
+    ...payload,
   }
 }
 
@@ -39,4 +48,5 @@ export {
   createDeleteBlockAction,
   createChangeTextAction,
   createChangeSelectionAction,
+  createChangeSettingsAction,
 }

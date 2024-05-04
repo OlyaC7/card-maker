@@ -3,12 +3,28 @@ import { PictureBlock } from './components/Picture/PictureBlock'
 import { FigureBlock } from './components/Figure/FigureBlock'
 import styles from './canvas.module.css'
 import { useAppActions, useAppSelector } from './redux/hooks'
+import { useEffect } from 'react'
+import { PositionType, SizeType } from './types'
 
 function Canvas() {
   const objects = useAppSelector((state) => state.editor.canvas.objects)
   const settings = useAppSelector((state) => state.editor.canvas)
-  const selectedObjects = useAppSelector(state => state.editor.selectBlock)
-  const { createChangeSelectionAction } = useAppActions()
+  const selectedObjects = useAppSelector((state) => state.editor.selectBlock)
+  const {
+    createChangeSettingsAction,
+    createChangeSelectionAction,
+    createDeleteBlockAction,
+  } = useAppActions()
+
+  console.log(objects)
+
+  useEffect(() => {
+    document.addEventListener('keydown', (e) => {
+      if (e.keyCode === 46) {
+        createDeleteBlockAction()
+      }
+    })
+  }, [])
 
   return (
     <div
@@ -24,7 +40,23 @@ function Canvas() {
         const objectInfo = {
           id: object.id,
           position: object.position,
-          size: object.size
+          size: object.size,
+        }
+        const updatePosition = (position: PositionType) => {
+          createChangeSettingsAction({
+            payload: {
+              id: objectInfo.id,
+              position,
+            },
+          })
+        }
+        const updateSize = (size: SizeType) => {
+          createChangeSettingsAction({
+            payload: {
+              id: objectInfo.id,
+              size,
+            },
+          })
         }
 
         switch (object.type) {
@@ -38,9 +70,10 @@ function Canvas() {
                   createChangeSelectionAction(object.id)
                 }}
                 objectInfo={objectInfo}
-                updatePosition={() => { }}
-                updateSize={() => { }}
-              />)
+                updatePosition={updatePosition}
+                updateSize={updateSize}
+              />
+            )
           case 'picture':
             return (
               <PictureBlock
@@ -51,8 +84,8 @@ function Canvas() {
                   createChangeSelectionAction(object.id)
                 }}
                 objectInfo={objectInfo}
-                updatePosition={() => { }}
-                updateSize={() => { }}
+                updatePosition={updatePosition}
+                updateSize={updateSize}
               />
             )
           case 'figure':
@@ -65,8 +98,8 @@ function Canvas() {
                   createChangeSelectionAction(object.id)
                 }}
                 objectInfo={objectInfo}
-                updatePosition={() => { }}
-                updateSize={() => { }}
+                updatePosition={updatePosition}
+                updateSize={updateSize}
               />
             )
           default:

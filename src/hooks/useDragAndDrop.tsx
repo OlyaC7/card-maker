@@ -2,16 +2,17 @@ import { RefObject, useRef, useEffect } from 'react'
 import { PositionType } from '../types'
 
 type UseDragAndDropArgs = {
-  ref: RefObject<HTMLElement>,
-  onMove: (delta: PositionType) => void,
-  onMouseUp: () => void,
+  ref: RefObject<HTMLElement>
+  onMove: (delta: PositionType) => void
+  onMouseUp: () => void
 }
 
 function useDragAndDrop({
   onMouseUp: _onMouseUp,
   onMove,
-  ref
+  ref,
 }: UseDragAndDropArgs) {
+  // TODO: добавить ресайз объекта
   const startPos = useRef({
     x: 0,
     y: 0,
@@ -21,7 +22,6 @@ function useDragAndDrop({
       x: mouseMoveEvent.clientX - startPos.current.x,
       y: mouseMoveEvent.clientY - startPos.current.y,
     }
-    console.log('dnd inside move')
     onMove(delta)
   }
   function onMouseUp() {

@@ -25,7 +25,7 @@
     "rules": {
         "prettier/prettier": "error",
         "no-duplicate-imports": "error",
-        "no-self-compare":"error",
-        "no-use-before-define":"error"
+        "no-self-compare": "error",
+        "no-use-before-define": "error"
     }
 }

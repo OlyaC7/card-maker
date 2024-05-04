@@ -1,18 +1,21 @@
 import { PictureType } from '../../types'
-import { SelectedBlock, SelectedBlockProps } from '../SelectedBlock/SelectedBlock'
+import {
+  SelectedBlock,
+  SelectedBlockProps,
+} from '../SelectedBlock/SelectedBlock'
 
 type PictureBlockProps = Omit<SelectedBlockProps, 'component'> & {
-  pictureBlock: PictureType,
+  pictureBlock: PictureType
 }
 
 function PictureBlock(props: PictureBlockProps) {
   const {
-    pictureBlock: {
-      data,
-    },
+    pictureBlock: { data },
   } = props
 
   // не будет работать resize, потому что localPosition внутри SelectedBlock, он нужен здесь
+
+  // const [localPosition, setLocalPosition] = useState(objectInfo.position)
 
   return (
     <SelectedBlock
@@ -28,6 +31,4 @@ function PictureBlock(props: PictureBlockProps) {
   )
 }
 
-export {
-  PictureBlock
-}
+export { PictureBlock }
