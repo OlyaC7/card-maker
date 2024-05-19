@@ -5,7 +5,6 @@ import newCanvas from '../dataMiddle'
 import { generateRandomId } from '../utils/generateRandomId'
 
 const editorReducer = (state: EditorType = newCanvas, action: Action) => {
-  console.log(action.type, action)
   switch (action.type) {
     case EditorActions.ADD_TEXTBLOCK: {
       const newText: TextType = {
@@ -65,7 +64,6 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
       return newState
     }
     case EditorActions.CHANGE_TEXT: {
-      
       const newState = {
         ...state,
         canvas: {
@@ -100,8 +98,6 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
       }
     case EditorActions.UPDATE_SETTINGS: {
       const { id: figureId, position, size } = action.payload
-      console.log('?????????????????????', action)
-
       const figure = state.canvas.objects.find((x) => x.id === figureId)
       if (figure && (position || size)) {
         return {

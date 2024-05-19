@@ -5,7 +5,6 @@ enum EditorActions {
   ADD_TEXTBLOCK = 'ADD_TEXTBLOCK',
   DELETE_SELECTED_ITEMS = 'DELETE_SELECTED_ITEMS',
   ADD_PICTUREBLOCK = 'ADD_PICTUREBLOCK',
-  OPEN_TEXTTOOLBAR = 'OPEN_TEXTTOOLBAR',
   CHANGE_TEXT = 'CHANGE_TEXT',
   ADD_FIGUREBLOCK = 'ADD_FIGUREBLOCK',
   CHANGE_SELECTION = 'CHANGE_SELECTION',
@@ -18,10 +17,6 @@ type AddTextBlockAction = {
 
 type AddPictureBlockAction = {
   type: EditorActions.ADD_PICTUREBLOCK
-}
-
-type OpenTextToolBarAction = {
-  type: EditorActions.OPEN_TEXTTOOLBAR
 }
 
 type DeleteTextBlockAction = {
@@ -55,7 +50,6 @@ type Action =
   | AddTextBlockAction
   | DeleteTextBlockAction
   | AddPictureBlockAction
-  | OpenTextToolBarAction
   | ChangeTextAction
   | ChangeSelectionAction
   | UpdateSettingsAction

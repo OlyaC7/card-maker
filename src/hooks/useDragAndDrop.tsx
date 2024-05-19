@@ -4,7 +4,7 @@ import { PositionType } from '../types'
 type UseDragAndDropArgs = {
   ref: RefObject<HTMLElement>
   onMove: (delta: PositionType) => void
-  onMouseUp: () => void
+  onMouseUp: (delta: PositionType) => void
 }
 
 function useDragAndDrop({
@@ -17,18 +17,19 @@ function useDragAndDrop({
     x: 0,
     y: 0,
   })
+
+  let delta: PositionType
   function onMouseMove(mouseMoveEvent: MouseEvent) {
-    const delta: PositionType = {
+    delta = {
       x: mouseMoveEvent.clientX - startPos.current.x,
       y: mouseMoveEvent.clientY - startPos.current.y,
     }
     onMove(delta)
   }
   function onMouseUp() {
-    startPos.current.x = 0
-    startPos.current.y = 0
-
-    _onMouseUp()
+    if (delta) {
+      _onMouseUp(delta)
+    }
 
     document.removeEventListener('mousemove', onMouseMove)
     document.removeEventListener('mouseup', onMouseUp)

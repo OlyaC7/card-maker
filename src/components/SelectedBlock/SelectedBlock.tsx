@@ -23,23 +23,23 @@ function SelectedBlock({
 }: SelectedBlockProps) {
   const ref = useRef<HTMLDivElement>(null)
 
-//   const [localPosition, setLocalPosition] = useState(objectInfo.position)
-  const [localSize, setLocalSize] = useState(objectInfo.size)
+  //   const [localPosition, setLocalPosition] = useState(objectInfo.position)
+  // const [localSize, setLocalSize] = useState(objectInfo.size)
 
   useDragAndDrop({
     ref,
     onMouseUp: () => {
-    //   updatePosition(localPosition)
+      //   updatePosition(localPosition)
     },
     onMove: (delta) => {
       updatePosition({
         x: objectInfo.position.x + delta.x,
         y: objectInfo.position.y + delta.y,
       })
-    //   setLocalPosition({
-    //     x: localPosition.x + delta.x,
-    //     y: localPosition.y + delta.y,
-    //   })
+      //   setLocalPosition({
+      //     x: localPosition.x + delta.x,
+      //     y: localPosition.y + delta.y,
+      //   })
     },
   })
 
@@ -78,8 +78,10 @@ function SelectedBlock({
             },
           }}
           size={{
-            state: localSize,
-            setState: setLocalSize,
+            state: objectInfo.size,
+            setState: (size) => {
+              updateSize(size)
+            },
           }}
         />
       )}

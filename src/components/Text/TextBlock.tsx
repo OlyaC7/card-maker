@@ -1,3 +1,4 @@
+import React from 'react'
 import { TextType } from '../../types'
 import styles from './textBlock.module.css'
 import {
@@ -27,6 +28,12 @@ function TextBlock(props: TextBlockProps) {
     }
   }
 
+  function changeColor() {
+    const color = document.getElementById('color') as HTMLInputElement
+    console.log(color)
+    console.log(color.value)
+  }
+
   return (
     <SelectedBlock
       updatePosition={updatePosition}
@@ -44,6 +51,7 @@ function TextBlock(props: TextBlockProps) {
           }}
           value={text}
           onChange={(event) => changeText(event)}
+          onClick={changeColor}
         ></textarea>
       }
     />

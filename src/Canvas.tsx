@@ -16,8 +16,6 @@ function Canvas() {
     createDeleteBlockAction,
   } = useAppActions()
 
-  console.log(objects)
-
   useEffect(() => {
     document.addEventListener('keydown', (e) => {
       if (e.keyCode === 46) {
@@ -42,6 +40,7 @@ function Canvas() {
           position: object.position,
           size: object.size,
         }
+
         const updatePosition = (position: PositionType) => {
           createChangeSettingsAction({
             payload: {

@@ -6,7 +6,6 @@ type rectBlockType = {
 
 function Rect(props: rectBlockType) {
   const { size, fill } = props.rectType
-  console.log(size)
   return (
     <svg
       width={size.width}

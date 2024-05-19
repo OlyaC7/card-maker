@@ -17,24 +17,30 @@ type BorderSelectedProps = {
 
 function BorderSelected({ position, size, commit }: BorderSelectedProps) {
   const topLeft = useRef<HTMLDivElement>(null)
+  const bottomRight = useRef<HTMLDivElement>(null)
 
   useDragAndDrop({
-    ref: topLeft,
+    ref: bottomRight,
     onMove: (delta) => {
-      const newPosition = {
-        x: position.state.x + delta.x,
-        y: position.state.y + delta.y,
-      }
+      // const newPosition = {
+      //   // TODO высчитывается как-то не так
+      //   x: position.state.x + delta.x,
+      //   y: position.state.y + delta.y,
+      // }
       const newSize = {
-        // TODO высчитывается как-то не так
-        width: size.state.width - delta.x,
-        height: size.state.height - delta.y,
+        width: size.state.width + delta.x,
+        height: size.state.height + delta.y,
       }
-      position.setState(newPosition)
+
       size.setState(newSize)
     },
-    onMouseUp: () => {
-      commit(size.state, position.state)
+    onMouseUp: (delta) => {
+      const newSize = {
+        width: size.state.width + delta.x,
+        height: size.state.height + delta.y,
+      }
+
+      commit(newSize, position.state)
     },
   })
 
@@ -42,7 +48,10 @@ function BorderSelected({ position, size, commit }: BorderSelectedProps) {
     <>
       <div ref={topLeft} className={css['top-left'] + ' ' + css.resize} />
       <div className={css['top-right'] + ' ' + css.resize} />
-      <div className={css['bottom-right'] + ' ' + css.resize} />
+      <div
+        ref={bottomRight}
+        className={css['bottom-right'] + ' ' + css.resize}
+      />
       <div className={css['bottom-left'] + ' ' + css.resize} />
     </>
   )
