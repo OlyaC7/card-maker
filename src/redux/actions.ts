@@ -9,6 +9,7 @@ enum EditorActions {
   ADD_FIGUREBLOCK = 'ADD_FIGUREBLOCK',
   CHANGE_SELECTION = 'CHANGE_SELECTION',
   UPDATE_SETTINGS = 'UPDATE_SETTINGS',
+  CHANGE_TEXT_COLOR = 'CHANGE_TEXT_COLOR',
 }
 
 type AddTextBlockAction = {
@@ -46,6 +47,14 @@ type UpdateSettingsAction = {
   }
 }
 
+type ChangeTextColorAction = {
+  type: EditorActions.CHANGE_TEXT_COLOR
+  payload: {
+    id: string
+    color?: string
+  }
+}
+
 type Action =
   | AddTextBlockAction
   | DeleteTextBlockAction
@@ -53,5 +62,6 @@ type Action =
   | ChangeTextAction
   | ChangeSelectionAction
   | UpdateSettingsAction
+  | ChangeTextColorAction
 
 export { EditorActions, type Action, type UpdateSettingsAction }

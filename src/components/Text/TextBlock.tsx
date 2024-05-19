@@ -20,19 +20,23 @@ function TextBlock(props: TextBlockProps) {
     updateSize,
   } = props
 
-  function changeText(event: React.ChangeEvent<HTMLTextAreaElement>) {
-    if (!event.defaultPrevented) {
-      const text = event.target.value
-      event.preventDefault()
-      return text
-    }
+  function changeText(event: React.MouseEvent) {
+    const target = event.target as HTMLDivElement
+    target.contentEditable = 'true'
+    target.focus()
+    document.addEventListener('keydown', (e) => {
+      if (e.keyCode === 13) {
+        target.removeAttribute('contenteditable')
+      }
+    })
   }
 
-  function changeColor() {
-    const color = document.getElementById('color') as HTMLInputElement
-    console.log(color)
-    console.log(color.value)
-  }
+  // function changeColor() {
+  //   const newcolor = document.getElementById('colorText') as HTMLInputElement
+  //   console.log(newcolor.value)
+  //   console.log(color)
+  //   return newcolor
+  // }
 
   return (
     <SelectedBlock
@@ -42,17 +46,18 @@ function TextBlock(props: TextBlockProps) {
       objectInfo={objectInfo}
       changeSelection={changeSelection}
       component={
-        <textarea
+        <div
           className={styles.textarea}
           style={{
             color,
             fontFamily,
             backgroundColor,
           }}
-          value={text}
-          onChange={(event) => changeText(event)}
-          onClick={changeColor}
-        ></textarea>
+          onMouseDown={changeText}
+          // onClick={changeColor}
+        >
+          {text}
+        </div>
       }
     />
   )

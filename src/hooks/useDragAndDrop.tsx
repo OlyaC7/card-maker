@@ -12,7 +12,6 @@ function useDragAndDrop({
   onMove,
   ref,
 }: UseDragAndDropArgs) {
-  // TODO: добавить ресайз объекта
   const startPos = useRef({
     x: 0,
     y: 0,

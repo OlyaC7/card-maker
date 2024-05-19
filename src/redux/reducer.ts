@@ -3,6 +3,7 @@ import { EditorType, TextType, PictureType } from '../types'
 import { combineReducers } from 'redux'
 import newCanvas from '../dataMiddle'
 import { generateRandomId } from '../utils/generateRandomId'
+// import { getColor } from '../utils/getColor'
 
 const editorReducer = (state: EditorType = newCanvas, action: Action) => {
   switch (action.type) {
@@ -118,6 +119,16 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
         }
       }
       return state
+    }
+    case EditorActions.CHANGE_TEXT_COLOR: {
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          objects: [...state.canvas.objects],
+        },
+      }
+      return newState
     }
     default:
       return { ...state }

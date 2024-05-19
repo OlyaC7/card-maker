@@ -18,9 +18,10 @@ function createDeleteBlockAction() {
   }
 }
 
-function createChangeTextAction() {
+function createChangeTextAction(newText: string) {
   return {
     type: EditorActions.CHANGE_TEXT,
+    payload: newText,
   }
 }
 
@@ -42,6 +43,16 @@ function createChangeSettingsAction(
   }
 }
 
+function createChangeTextColorAction(blockId: string, color: string) {
+  return {
+    type: EditorActions.CHANGE_TEXT_COLOR,
+    payload: {
+      id: blockId,
+      color: color,
+    },
+  }
+}
+
 export {
   createAddTextBlockAction,
   createAddPictureBlockAction,
@@ -49,4 +60,5 @@ export {
   createChangeTextAction,
   createChangeSelectionAction,
   createChangeSettingsAction,
+  createChangeTextColorAction,
 }

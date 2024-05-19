@@ -1,23 +1,6 @@
-type EditorType = {
-  canvas: CanvasType
-  templates: Template
-  selectBlock: Array<string>
-}
-
-type Template = {
-  id: string
-  objects: Array<CanvasType>
-}
-
 type Filter = 'red' | 'green' | 'blue' | 'whiteBlack'
 
 //если пустой канвас, то значения null
-
-type CanvasType = {
-  objects: Array<PictureType | TextType | FigureType>
-  background: BackgroundType
-  size: SizeType
-}
 
 type BackgroundType = {
   type: 'link' | 'base64' | 'color'
@@ -74,6 +57,22 @@ type FigureType = ObjectType & {
   figureType: ArtType
   stroke: string
   strokeWidth: string
+}
+type CanvasType = {
+  objects: Array<PictureType | TextType | FigureType>
+  background: BackgroundType
+  size: SizeType
+}
+
+type Template = {
+  id: string
+  objects: Array<CanvasType>
+}
+
+type EditorType = {
+  canvas: CanvasType
+  templates: Template
+  selectBlock: Array<string>
 }
 
 enum ButtonType {

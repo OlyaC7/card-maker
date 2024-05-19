@@ -36,10 +36,6 @@ function SelectedBlock({
         x: objectInfo.position.x + delta.x,
         y: objectInfo.position.y + delta.y,
       })
-      //   setLocalPosition({
-      //     x: localPosition.x + delta.x,
-      //     y: localPosition.y + delta.y,
-      //   })
     },
   })
 

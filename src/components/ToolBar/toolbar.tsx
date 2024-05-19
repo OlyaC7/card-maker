@@ -20,7 +20,10 @@ function ToolBar() {
           button: ButtonType.buttonAddPicture,
         }}
       />
-      <input type="color" id="color" />
+      <div>
+        <label>Text color: </label>
+        <input type="color" id="colorText" />
+      </div>
     </div>
   )
 }
