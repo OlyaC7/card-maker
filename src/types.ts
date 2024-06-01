@@ -75,6 +75,14 @@ type EditorType = {
   selectBlock: Array<string>
 }
 
+function isBlockTextType(
+  block: TextType | PictureType | FigureType,
+): block is TextType {
+  return block.type === 'text'
+}
+
+type BlockType = FigureType | PictureType | TextType
+
 enum ButtonType {
   buttonText,
   buttonAddText,

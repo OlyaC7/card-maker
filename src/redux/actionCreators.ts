@@ -43,11 +43,11 @@ function createChangeSettingsAction(
   }
 }
 
-function createChangeTextColorAction(blockId: string, color: string) {
+function createChangeTextColorAction(blocksIds: string[], color: string) {
   return {
     type: EditorActions.CHANGE_TEXT_COLOR,
     payload: {
-      id: blockId,
+      ids: blocksIds,
       color: color,
     },
   }
