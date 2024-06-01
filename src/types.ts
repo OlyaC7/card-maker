@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 type Filter = 'red' | 'green' | 'blue' | 'whiteBlack'
 
 //если пустой канвас, то значения null
@@ -108,6 +109,7 @@ export type {
   FontStyleType,
   Filter,
   PositionType,
+  BlockType,
 }
 
-export { ArtType, ButtonType }
+export { ArtType, ButtonType, isBlockTextType }

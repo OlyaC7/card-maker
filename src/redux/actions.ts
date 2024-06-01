@@ -1,6 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { PositionType, SizeType } from '../types'
 
-/* eslint-disable no-unused-vars */
 enum EditorActions {
   ADD_TEXTBLOCK = 'ADD_TEXTBLOCK',
   DELETE_SELECTED_ITEMS = 'DELETE_SELECTED_ITEMS',
@@ -50,8 +50,8 @@ type UpdateSettingsAction = {
 type ChangeTextColorAction = {
   type: EditorActions.CHANGE_TEXT_COLOR
   payload: {
-    id: string
-    color?: string
+    ids: string[]
+    color: string
   }
 }
 

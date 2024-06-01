@@ -1,4 +1,5 @@
-import { ReactNode, useEffect, useRef, useState } from 'react'
+/* eslint-disable no-unused-vars */
+import { ReactNode, useEffect, useRef } from 'react'
 import styles from './SelectedBlock.module.css'
 import { BorderSelected } from './SelectedBorder/SelectedBorder'
 import { ObjectType, PositionType, SizeType } from '../../types'
@@ -23,14 +24,9 @@ function SelectedBlock({
 }: SelectedBlockProps) {
   const ref = useRef<HTMLDivElement>(null)
 
-  //   const [localPosition, setLocalPosition] = useState(objectInfo.position)
-  // const [localSize, setLocalSize] = useState(objectInfo.size)
-
   useDragAndDrop({
     ref,
-    onMouseUp: () => {
-      //   updatePosition(localPosition)
-    },
+    onMouseUp: () => {},
     onMove: (delta) => {
       updatePosition({
         x: objectInfo.position.x + delta.x,

@@ -31,13 +31,6 @@ function TextBlock(props: TextBlockProps) {
     })
   }
 
-  // function changeColor() {
-  //   const newcolor = document.getElementById('colorText') as HTMLInputElement
-  //   console.log(newcolor.value)
-  //   console.log(color)
-  //   return newcolor
-  // }
-
   return (
     <SelectedBlock
       updatePosition={updatePosition}
@@ -54,7 +47,6 @@ function TextBlock(props: TextBlockProps) {
             backgroundColor,
           }}
           onMouseDown={changeText}
-          // onClick={changeColor}
         >
           {text}
         </div>
