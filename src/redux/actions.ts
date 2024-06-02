@@ -10,6 +10,8 @@ enum EditorActions {
   CHANGE_SELECTION = 'CHANGE_SELECTION',
   UPDATE_SETTINGS = 'UPDATE_SETTINGS',
   CHANGE_TEXT_COLOR = 'CHANGE_TEXT_COLOR',
+  CHANGE_TEXT_FONT_SIZE = 'CHANGE_TEXT_FONT_SIZE',
+  CHANGE_TEXT_FONT_FAMILY = 'CHANGE_TEXT_FONT_FAMILY',
 }
 
 type AddTextBlockAction = {
@@ -55,6 +57,22 @@ type ChangeTextColorAction = {
   }
 }
 
+type ChangeTextFontSizeAction = {
+  type: EditorActions.CHANGE_TEXT_FONT_SIZE
+  payload: {
+    ids: string[]
+    fontSize: string
+  }
+}
+
+type ChangeTextFontFamilyAction = {
+  type: EditorActions.CHANGE_TEXT_FONT_FAMILY
+  payload: {
+    ids: string[]
+    fontFamily: string
+  }
+}
+
 type Action =
   | AddTextBlockAction
   | DeleteTextBlockAction
@@ -63,5 +81,7 @@ type Action =
   | ChangeSelectionAction
   | UpdateSettingsAction
   | ChangeTextColorAction
+  | ChangeTextFontSizeAction
+  | ChangeTextFontFamilyAction
 
 export { EditorActions, type Action, type UpdateSettingsAction }

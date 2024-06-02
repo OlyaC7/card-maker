@@ -53,6 +53,25 @@ function createChangeTextColorAction(blocksIds: string[], color: string) {
   }
 }
 
+function createChangeTextFontSize(blocksIds: string[], fontSize: string) {
+  return {
+    type: EditorActions.CHANGE_TEXT_FONT_SIZE,
+    payload: {
+      ids: blocksIds,
+      fontSize: fontSize,
+    },
+  }
+}
+
+function createChangeTextFontFamily(blocksIds: string[], fontFamily: string) {
+  return {
+    type: EditorActions.CHANGE_TEXT_FONT_FAMILY,
+    payload: {
+      ids: blocksIds,
+      fontFamily: fontFamily,
+    },
+  }
+}
 export {
   createAddTextBlockAction,
   createAddPictureBlockAction,
@@ -61,4 +80,6 @@ export {
   createChangeSelectionAction,
   createChangeSettingsAction,
   createChangeTextColorAction,
+  createChangeTextFontSize,
+  createChangeTextFontFamily,
 }

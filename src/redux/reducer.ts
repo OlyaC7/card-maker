@@ -9,8 +9,8 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
     case EditorActions.ADD_TEXTBLOCK: {
       const newText: TextType = {
         type: 'text',
-        text: 'Текст',
-        color: '#000000',
+        text: 'New Text',
+        color: '#FFFFFFF',
         fontFamily: 'Roboto',
         fontSize: '18px',
         backgroundColor: 'unset',
@@ -138,6 +138,49 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
           objects: newObjects,
         },
       }
+      return newState
+    }
+    case EditorActions.CHANGE_TEXT_FONT_SIZE: {
+      const newObjects = state.canvas.objects.map((object) => {
+        if (action.payload.ids.includes(object.id) && object.type === 'text') {
+          return {
+            ...object,
+            fontSize: action.payload.fontSize + 'px',
+          }
+        }
+        return object
+      })
+
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          objects: newObjects,
+        },
+      }
+
+      return newState
+    }
+    case EditorActions.CHANGE_TEXT_FONT_FAMILY: {
+      const newObjects = state.canvas.objects.map((object) => {
+        if (action.payload.ids.includes(object.id) && object.type === 'text') {
+          return {
+            ...object,
+            fontFamily: action.payload.fontFamily,
+          }
+        }
+
+        return object
+      })
+
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          objects: newObjects,
+        },
+      }
+
       return newState
     }
     default:

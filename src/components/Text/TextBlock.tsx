@@ -12,7 +12,7 @@ type TextBlockProps = Omit<SelectedBlockProps, 'component'> & {
 
 function TextBlock(props: TextBlockProps) {
   const {
-    textBlock: { color, fontFamily, text, backgroundColor },
+    textBlock: { color, fontFamily, text, backgroundColor, fontSize },
     changeSelection,
     selected,
     objectInfo,
@@ -45,6 +45,7 @@ function TextBlock(props: TextBlockProps) {
             color,
             fontFamily,
             backgroundColor,
+            fontSize,
           }}
           onMouseDown={changeText}
         >

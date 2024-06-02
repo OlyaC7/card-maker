@@ -4,7 +4,12 @@ import Rect from './Rect/Rect'
 import Star from './Star/Star'
 import Arrow from './Arrow/Arrow'
 import Circle from './Circle/Circle'
-import { SelectedBlock, SelectedBlockProps } from '../SelectedBlock/SelectedBlock'
+import {
+  SelectedBlock,
+  SelectedBlockProps,
+} from '../SelectedBlock/SelectedBlock'
+import Sun from './Sun/Sun'
+import Audi from './Audi/Audi'
 
 type FigureBlockProps = Omit<SelectedBlockProps, 'component'> & {
   figureBlock: FigureType
@@ -44,19 +49,25 @@ function FigureBlock(props: FigureBlockProps) {
         </div>
       )
       break
+    case 4:
+      content = (
+        <div id={id}>
+          <Sun sunType={props.figureBlock} />
+        </div>
+      )
+      break
+    case 5:
+      content = (
+        <div id={id}>
+          <Audi audiType={props.figureBlock} />
+        </div>
+      )
+      break
     default:
       content = <div>dsssss</div>
   }
 
-
-  return (
-    <SelectedBlock
-      {...props}
-      component={content}
-    />
-  )
+  return <SelectedBlock {...props} component={content} />
 }
 
-export {
-  FigureBlock
-}
+export { FigureBlock }

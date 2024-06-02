@@ -3,9 +3,14 @@ import { useAppActions, useAppSelector } from '../../redux/hooks'
 import { ButtonType } from '../../types'
 import styles from '../ToolBar/toolbar.module.css'
 import React from 'react'
+import { optionsSize, optionsFamily } from './getTextStyleOptions'
 
 function ToolBar() {
-  const { createChangeTextColorAction } = useAppActions()
+  const {
+    createChangeTextColorAction,
+    createChangeTextFontSize,
+    createChangeTextFontFamily,
+  } = useAppActions()
   const selectedObjects = useAppSelector((state) => state.editor.selectBlock)
 
   return (
@@ -37,6 +42,46 @@ function ToolBar() {
             )
           }}
         />
+      </div>
+      <div>
+        <label>
+          Font size:
+          <select
+            onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
+              createChangeTextFontSize(
+                selectedObjects,
+                event.currentTarget.value,
+              )
+            }}
+            name="selectedFontSize"
+          >
+            {optionsSize.map((element: string, index: number) => (
+              <option key={index} value={element}>
+                {element}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+      <div>
+        <label>
+          Font Family:
+          <select
+            onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
+              createChangeTextFontFamily(
+                selectedObjects,
+                event.currentTarget.value,
+              )
+            }}
+            name="selectedFontFamily"
+          >
+            {optionsFamily.map((element: string, index: number) => (
+              <option key={index} value={element}>
+                {element}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
     </div>
   )

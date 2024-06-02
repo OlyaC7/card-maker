@@ -65,6 +65,23 @@ const figure1: FigureType = {
   },
 }
 
+const figure2: FigureType = {
+  type: 'figure',
+  id: '6',
+  fill: '#fff785',
+  figureType: ArtType.Sun,
+  stroke: '#fff785',
+  strokeWidth: '1px',
+  position: {
+    x: 60,
+    y: 120,
+  },
+  size: {
+    width: 16,
+    height: 16,
+  },
+}
+
 const canvas: CanvasType = {
   background: {
     type: 'color',
@@ -74,7 +91,7 @@ const canvas: CanvasType = {
     width: 700,
     height: 500,
   },
-  objects: [picture1, text1, figure1],
+  objects: [picture1, text1, figure1, figure2],
 }
 
 const template1: Template = {

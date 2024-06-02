@@ -50,6 +50,8 @@ enum ArtType {
   Circle,
   Star,
   Arrow,
+  Sun,
+  Audi,
 }
 
 type FigureType = ObjectType & {
