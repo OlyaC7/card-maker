@@ -6,10 +6,16 @@ function SideBar() {
     <div className={styles.sidebar}>
       <Button buttonBlock={{ text: 'Text', button: ButtonType.buttonText }} />
       <Button
-        buttonBlock={{ text: 'Picture', button: ButtonType.buttonPicture }}
+        buttonBlock={{
+          text: 'Picture',
+          button: ButtonType.buttonPicture,
+        }}
       />
       <Button
-        buttonBlock={{ text: 'Elements', button: ButtonType.buttonFigure }}
+        buttonBlock={{
+          text: 'Elements',
+          button: ButtonType.buttonFigure,
+        }}
       />
     </div>
   )

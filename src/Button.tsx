@@ -15,6 +15,10 @@ function Button(props: ButtonBlockProps) {
     createAddTextBlockAction,
     createAddPictureBlockAction,
     createDeleteBlockAction,
+    createAddFigureBlockAction,
+    createChangeTextBoldAction,
+    createChangeTextItalicAction,
+    createChangeTextDecorationAction,
   } = useAppActions()
 
   switch (props.buttonBlock.button) {
@@ -42,23 +46,6 @@ function Button(props: ButtonBlockProps) {
           </button>
         </div>
       )
-    case ButtonType.buttonUndo:
-      return (
-        <div>
-          <button className={styles.undoButton}>
-            {props.buttonBlock.text}
-          </button>
-        </div>
-      )
-    case ButtonType.buttonRedo:
-      return (
-        <div>
-          <button className={styles.redoButton}>
-            {props.buttonBlock.text}
-          </button>
-        </div>
-      )
-
     case ButtonType.buttonSave:
       return (
         <div>
@@ -95,6 +82,50 @@ function Button(props: ButtonBlockProps) {
           <button
             className={styles.textAddTextButton}
             onClick={() => createDeleteBlockAction()}
+          >
+            {props.buttonBlock.text}
+          </button>
+        </div>
+      )
+    case ButtonType.buttonAddFigure:
+      return (
+        <div>
+          <button
+            className={styles.textAddTextButton}
+            onClick={() => createAddFigureBlockAction()}
+          >
+            {props.buttonBlock.text}
+          </button>
+        </div>
+      )
+    case ButtonType.buttonChangeTextBold:
+      return (
+        <div>
+          <button
+            className={styles.textAddTextButton}
+            onClick={() => createChangeTextBoldAction()}
+          >
+            {props.buttonBlock.text}
+          </button>
+        </div>
+      )
+    case ButtonType.buttonChangeTextItalic:
+      return (
+        <div>
+          <button
+            className={styles.textAddTextButton}
+            onClick={() => createChangeTextItalicAction()}
+          >
+            {props.buttonBlock.text}
+          </button>
+        </div>
+      )
+    case ButtonType.buttonChangeTextDecoration:
+      return (
+        <div>
+          <button
+            className={styles.textAddTextButton}
+            onClick={() => createChangeTextDecorationAction()}
           >
             {props.buttonBlock.text}
           </button>

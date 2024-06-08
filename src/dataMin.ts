@@ -6,7 +6,6 @@ import {
   CanvasType,
   Template,
   EditorType,
-  FontStyleType,
   FigureType,
   ArtType,
 } from './types'
@@ -36,11 +35,6 @@ const picture1: PictureType = {
   },
 }
 
-const fontStyle1: FontStyleType = {
-  bold: false,
-  italic: false,
-}
-
 const text1: TextType = {
   type: 'text',
   text: 'English texts for beginners to practice reading and comprehension online and for free.',
@@ -48,7 +42,9 @@ const text1: TextType = {
   fontFamily: 'Roboto',
   fontSize: '18px',
   backgroundColor: 'unset',
-  fontStyle: fontStyle1,
+  fontWeight: 700,
+  fontStyle: 'normal',
+  textDecoration: 'none',
   id: '9',
   position: {
     x: 0,

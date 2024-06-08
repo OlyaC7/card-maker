@@ -1,5 +1,4 @@
 import {
-  FontStyleType,
   PictureType,
   TextType,
   CanvasType,
@@ -24,11 +23,6 @@ const picture1: PictureType = {
   pictureType: 'link',
 }
 
-const fontStyle1: FontStyleType = {
-  bold: true,
-  italic: false,
-}
-
 const text1: TextType = {
   type: 'text',
   id: '2',
@@ -36,7 +30,9 @@ const text1: TextType = {
   color: '#564897',
   fontFamily: 'Roboto',
   fontSize: '22px',
-  fontStyle: fontStyle1,
+  fontWeight: 700,
+  fontStyle: 'normal',
+  textDecoration: 'none',
   position: {
     x: 50,
     y: 220,

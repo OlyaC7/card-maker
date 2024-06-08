@@ -1,5 +1,11 @@
 import { Action, EditorActions } from './actions'
-import { EditorType, TextType, PictureType } from '../types'
+import {
+  EditorType,
+  TextType,
+  PictureType,
+  FigureType,
+  ArtType,
+} from '../types'
 import { combineReducers } from 'redux'
 import newCanvas from '../dataMiddle'
 import { generateRandomId } from '../utils/generateRandomId'
@@ -14,10 +20,9 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
         fontFamily: 'Roboto',
         fontSize: '18px',
         backgroundColor: 'unset',
-        fontStyle: {
-          bold: false,
-          italic: false,
-        },
+        fontWeight: 400,
+        fontStyle: 'normal',
+        textDecoration: 'none',
         id: generateRandomId(),
         position: {
           x: 0,
@@ -119,12 +124,41 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
       }
       return state
     }
-    case EditorActions.CHANGE_TEXT_COLOR: {
+    case EditorActions.CHANGE_COLOR: {
       const newObjects = state.canvas.objects.map((object) => {
         if (action.payload.ids.includes(object.id) && object.type === 'text') {
           return {
             ...object,
             color: action.payload.color,
+          }
+        } else if (
+          action.payload.ids.includes(object.id) &&
+          object.type === 'figure'
+        ) {
+          return {
+            ...object,
+            fill: action.payload.color,
+          }
+        }
+
+        return object
+      })
+
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          objects: newObjects,
+        },
+      }
+      return newState
+    }
+    case EditorActions.CHANGE_BACKGROUND_COLOR: {
+      const newObjects = state.canvas.objects.map((object) => {
+        if (action.payload.ids.includes(object.id) && object.type === 'text') {
+          return {
+            ...object,
+            backgroundColor: action.payload.backgroundColor,
           }
         }
 
@@ -171,6 +205,157 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
         }
 
         return object
+      })
+
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          objects: newObjects,
+        },
+      }
+
+      return newState
+    }
+
+    case EditorActions.CHANGE_FIGURE_TYPE: {
+      const newObjects = state.canvas.objects.map((object) => {
+        if (
+          action.payload.ids.includes(object.id) &&
+          object.type === 'figure'
+        ) {
+          return {
+            ...object,
+            figureType: action.payload.figureType,
+          }
+        }
+
+        return object
+      })
+      console.log(newObjects)
+
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          objects: newObjects,
+        },
+      }
+
+      return newState
+    }
+    case EditorActions.ADD_FIGUREBLOCK: {
+      const newFigure: FigureType = {
+        type: 'figure',
+        fill: '#FFFFFF',
+        figureType: ArtType.Rect,
+        stroke: '#FFFFFF',
+        strokeWidth: '10',
+        id: generateRandomId(),
+        position: {
+          x: 0,
+          y: 0,
+        },
+        size: {
+          width: 100,
+          height: 50,
+        },
+      }
+
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          objects: [...state.canvas.objects, { ...newFigure }],
+        },
+      }
+      return newState
+    }
+    case EditorActions.CHANGE_TEXT_BOLD: {
+      const newObjects = state.canvas.objects.map((object) => {
+        if (state.selectBlock.includes(object.id)) {
+          if (object.type === 'text' && object.fontWeight !== 700) {
+            return {
+              ...object,
+              fontWeight: 700,
+            }
+          } else {
+            return {
+              ...object,
+              fontWeight: 400,
+            }
+          }
+        } else {
+          return {
+            ...object,
+          }
+        }
+      })
+
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          objects: newObjects,
+        },
+      }
+
+      return newState
+    }
+    case EditorActions.CHANGE_TEXT_ITALIC: {
+      const newObjects = state.canvas.objects.map((object) => {
+        if (state.selectBlock.includes(object.id)) {
+          if (object.type === 'text' && object.fontStyle !== 'italic') {
+            return {
+              ...object,
+              fontStyle: 'italic',
+            }
+          } else {
+            return {
+              ...object,
+              fontStyle: 'normal',
+            }
+          }
+        } else {
+          return {
+            ...object,
+          }
+        }
+      })
+
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          objects: newObjects,
+        },
+      }
+
+      return newState
+    }
+    case EditorActions.CHANGE_TEXT_DECORATION: {
+      const newObjects = state.canvas.objects.map((object) => {
+        if (state.selectBlock.includes(object.id) && object.type === 'text') {
+          if (object.textDecoration === 'none') {
+            return {
+              ...object,
+              textDecoration: 'underline',
+            }
+          } else if (object.textDecoration === 'underline') {
+            return {
+              ...object,
+              textDecoration: 'none',
+            }
+          } else {
+            return {
+              ...object,
+            }
+          }
+        } else {
+          return {
+            ...object,
+          }
+        }
       })
 
       const newState = {

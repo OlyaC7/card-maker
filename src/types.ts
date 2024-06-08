@@ -30,18 +30,15 @@ type PictureType = ObjectType & {
   data: string
 }
 
-type FontStyleType = {
-  bold: boolean
-  italic: boolean
-}
-
 type TextType = ObjectType & {
   type: 'text'
   text: string
   color: string
   fontFamily: string
   fontSize: string
-  fontStyle: FontStyleType
+  fontWeight: number
+  fontStyle: string
+  textDecoration: string
   backgroundColor: string
 }
 
@@ -96,6 +93,10 @@ enum ButtonType {
   buttonRedo,
   buttonAddPicture,
   buttonDeleteBlock,
+  buttonAddFigure,
+  buttonChangeTextBold,
+  buttonChangeTextItalic,
+  buttonChangeTextDecoration,
 }
 
 export type {
@@ -108,7 +109,6 @@ export type {
   FigureType,
   BackgroundType,
   SizeType,
-  FontStyleType,
   Filter,
   PositionType,
   BlockType,

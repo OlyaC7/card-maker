@@ -11,7 +11,12 @@ function Top() {
         </p>
       </div>
       <div>
-        <Button buttonBlock={{ text: 'Save', button: ButtonType.buttonSave }} />
+        <Button
+          buttonBlock={{
+            text: 'Save',
+            button: ButtonType.buttonSave,
+          }}
+        />
       </div>
     </div>
   )

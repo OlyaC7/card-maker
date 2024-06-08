@@ -35,4 +35,13 @@ const optionsFamily: string[] = [
   'Comic Sans MS',
 ]
 
-export { optionsSize, optionsFamily }
+const optionsFigureType: string[] = [
+  'Rect',
+  'Circle',
+  'Star',
+  'Arrow',
+  'Sun',
+  'Audi',
+]
+
+export { optionsSize, optionsFamily, optionsFigureType }

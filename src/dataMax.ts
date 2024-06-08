@@ -1,5 +1,4 @@
 import {
-  FontStyleType,
   PictureType,
   TextType,
   CanvasType,
@@ -69,26 +68,6 @@ const picture4: PictureType = {
   pictureType: 'link',
 }
 
-const fontStyle1: FontStyleType = {
-  bold: true,
-  italic: false,
-}
-
-const fontStyle2: FontStyleType = {
-  bold: false,
-  italic: true,
-}
-
-const fontStyle3: FontStyleType = {
-  bold: false,
-  italic: false,
-}
-
-const fontStyle4: FontStyleType = {
-  bold: true,
-  italic: true,
-}
-
 const text1: TextType = {
   type: 'text',
   id: '6',
@@ -96,7 +75,9 @@ const text1: TextType = {
   color: '#514897',
   fontFamily: 'Affect',
   fontSize: '36px',
-  fontStyle: fontStyle1,
+  fontWeight: 700,
+  fontStyle: 'normal',
+  textDecoration: 'none',
   position: {
     x: 602,
     y: 456,
@@ -115,7 +96,9 @@ const text2: TextType = {
   color: '#606e8c',
   fontFamily: 'Inter',
   fontSize: '18px',
-  fontStyle: fontStyle2,
+  fontWeight: 700,
+  fontStyle: 'normal',
+  textDecoration: 'none',
   position: {
     x: 62,
     y: 46,
@@ -134,7 +117,9 @@ const text3: TextType = {
   color: '#837da2',
   fontFamily: 'Roboto',
   fontSize: '22px',
-  fontStyle: fontStyle3,
+  fontWeight: 700,
+  fontStyle: 'normal',
+  textDecoration: 'none',
   position: {
     x: 874,
     y: 321,
@@ -153,7 +138,9 @@ const text4: TextType = {
   color: '#8673a1',
   fontFamily: 'Pacifico',
   fontSize: '48px',
-  fontStyle: fontStyle4,
+  fontWeight: 700,
+  fontStyle: 'normal',
+  textDecoration: 'none',
   position: {
     x: 354,
     y: 864,
@@ -172,7 +159,9 @@ const text5: TextType = {
   color: '#9d81ba',
   fontFamily: 'Roboto',
   fontSize: '26px',
-  fontStyle: fontStyle1,
+  fontWeight: 700,
+  fontStyle: 'normal',
+  textDecoration: 'none',
   position: {
     x: 321,
     y: 878,
@@ -345,3 +334,5 @@ const newCanvas4: EditorType = {
   templates: template2,
   selectBlock: ['3', '4', '6', '9'],
 }
+
+export { newCanvas4, newCanvas3, newCanvas2, newCanvas1 }

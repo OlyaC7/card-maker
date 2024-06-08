@@ -3,20 +3,25 @@ import { useAppActions, useAppSelector } from '../../redux/hooks'
 import { ButtonType } from '../../types'
 import styles from '../ToolBar/toolbar.module.css'
 import React from 'react'
-import { optionsSize, optionsFamily } from './getTextStyleOptions'
+import { optionsSize, optionsFamily, optionsFigureType } from './getOptions'
 
 function ToolBar() {
   const {
-    createChangeTextColorAction,
+    createChangeColorAction,
+    createChangeBackgroundColorAction,
     createChangeTextFontSize,
     createChangeTextFontFamily,
+    createSelectFigureType,
   } = useAppActions()
   const selectedObjects = useAppSelector((state) => state.editor.selectBlock)
 
   return (
     <div className={styles.toolbar}>
       <Button
-        buttonBlock={{ text: 'Add Text', button: ButtonType.buttonAddText }}
+        buttonBlock={{
+          text: 'Add Text',
+          button: ButtonType.buttonAddText,
+        }}
       />
       <Button
         buttonBlock={{
@@ -31,12 +36,22 @@ function ToolBar() {
         }}
       />
       <div>
-        <label>Text color: </label>
+        <label>Color: </label>
         <input
           type="color"
-          id="colorText"
+          id="color"
           onInput={(event: React.FormEvent<HTMLInputElement>) => {
-            createChangeTextColorAction(
+            createChangeColorAction(selectedObjects, event.currentTarget.value)
+          }}
+        />
+      </div>
+      <div>
+        <label>Background color: </label>
+        <input
+          type="color"
+          id="background"
+          onInput={(event: React.FormEvent<HTMLInputElement>) => {
+            createChangeBackgroundColorAction(
               selectedObjects,
               event.currentTarget.value,
             )
@@ -83,6 +98,48 @@ function ToolBar() {
           </select>
         </label>
       </div>
+      <Button
+        buttonBlock={{
+          text: 'Bold',
+          button: ButtonType.buttonChangeTextBold,
+        }}
+      />
+      <Button
+        buttonBlock={{
+          text: 'Italic',
+          button: ButtonType.buttonChangeTextItalic,
+        }}
+      />
+      <Button
+        buttonBlock={{
+          text: 'Underline',
+          button: ButtonType.buttonChangeTextDecoration,
+        }}
+      />
+      <div>
+        <label>
+          Figure:
+          <select
+            onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
+              createSelectFigureType(selectedObjects, event.currentTarget.value)
+            }}
+            name="selectedFigureType"
+          >
+            {optionsFigureType.map((element: string, index: number) => (
+              <option key={index} value={index}>
+                {element}
+              </option>
+            ))}
+          </select>
+        </label>
+        <Button
+          buttonBlock={{
+            text: 'Add Figure',
+            button: ButtonType.buttonAddFigure,
+          }}
+        />
+      </div>
+      <input type="file" accept="image/png, image/jpeg" />
     </div>
   )
 }

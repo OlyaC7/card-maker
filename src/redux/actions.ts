@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { PositionType, SizeType } from '../types'
+import { PositionType, SizeType, ArtType } from '../types'
 
 enum EditorActions {
   ADD_TEXTBLOCK = 'ADD_TEXTBLOCK',
@@ -9,9 +9,14 @@ enum EditorActions {
   ADD_FIGUREBLOCK = 'ADD_FIGUREBLOCK',
   CHANGE_SELECTION = 'CHANGE_SELECTION',
   UPDATE_SETTINGS = 'UPDATE_SETTINGS',
-  CHANGE_TEXT_COLOR = 'CHANGE_TEXT_COLOR',
+  CHANGE_COLOR = 'CHANGE_COLOR',
+  CHANGE_BACKGROUND_COLOR = 'CHANGE_BACKGROUND_COLOR',
   CHANGE_TEXT_FONT_SIZE = 'CHANGE_TEXT_FONT_SIZE',
   CHANGE_TEXT_FONT_FAMILY = 'CHANGE_TEXT_FONT_FAMILY',
+  CHANGE_FIGURE_TYPE = 'CHANGE_FIGURE_TYPE',
+  CHANGE_TEXT_BOLD = 'CHANGE_TEXT_BOLD',
+  CHANGE_TEXT_ITALIC = 'CHANGE_TEXT_ITALIC',
+  CHANGE_TEXT_DECORATION = 'CHANGE_TEXT_DECORATION',
 }
 
 type AddTextBlockAction = {
@@ -49,11 +54,19 @@ type UpdateSettingsAction = {
   }
 }
 
-type ChangeTextColorAction = {
-  type: EditorActions.CHANGE_TEXT_COLOR
+type ChangeColorAction = {
+  type: EditorActions.CHANGE_COLOR
   payload: {
     ids: string[]
     color: string
+  }
+}
+
+type ChangeBackgroundColorAction = {
+  type: EditorActions.CHANGE_BACKGROUND_COLOR
+  payload: {
+    ids: string[]
+    backgroundColor: string
   }
 }
 
@@ -73,6 +86,30 @@ type ChangeTextFontFamilyAction = {
   }
 }
 
+type ChangeAddFigureBlockAction = {
+  type: EditorActions.ADD_FIGUREBLOCK
+}
+
+type ChangeFigureTypeAction = {
+  type: EditorActions.CHANGE_FIGURE_TYPE
+  payload: {
+    ids: string[]
+    figureType: ArtType
+  }
+}
+
+type ChangeTextBoldAction = {
+  type: EditorActions.CHANGE_TEXT_BOLD
+}
+
+type ChangeTextItalicAction = {
+  type: EditorActions.CHANGE_TEXT_ITALIC
+}
+
+type ChangeTextDecorationAction = {
+  type: EditorActions.CHANGE_TEXT_DECORATION
+}
+
 type Action =
   | AddTextBlockAction
   | DeleteTextBlockAction
@@ -80,8 +117,14 @@ type Action =
   | ChangeTextAction
   | ChangeSelectionAction
   | UpdateSettingsAction
-  | ChangeTextColorAction
+  | ChangeColorAction
   | ChangeTextFontSizeAction
   | ChangeTextFontFamilyAction
+  | ChangeAddFigureBlockAction
+  | ChangeFigureTypeAction
+  | ChangeTextBoldAction
+  | ChangeTextItalicAction
+  | ChangeTextDecorationAction
+  | ChangeBackgroundColorAction
 
 export { EditorActions, type Action, type UpdateSettingsAction }
