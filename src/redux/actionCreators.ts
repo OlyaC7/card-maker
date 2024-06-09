@@ -120,6 +120,21 @@ function createChangeTextDecorationAction() {
   }
 }
 
+function createChangeImage(
+  blocksIds: string[],
+  data: string,
+  pictureType: string,
+) {
+  return {
+    type: EditorActions.CHANGE_PICTURE,
+    payload: {
+      ids: blocksIds,
+      data: data,
+      pictureType: pictureType,
+    },
+  }
+}
+
 export {
   createAddTextBlockAction,
   createAddPictureBlockAction,
@@ -136,4 +151,5 @@ export {
   createChangeTextBoldAction,
   createChangeTextItalicAction,
   createChangeTextDecorationAction,
+  createChangeImage,
 }

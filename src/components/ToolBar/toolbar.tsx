@@ -12,8 +12,42 @@ function ToolBar() {
     createChangeTextFontSize,
     createChangeTextFontFamily,
     createSelectFigureType,
+    createChangeImage,
   } = useAppActions()
   const selectedObjects = useAppSelector((state) => state.editor.selectBlock)
+
+  async function changeImageFile(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files ? event.target.files[0] : null
+    let data: string | null | ArrayBuffer = ''
+    const pictureType = 'base64'
+    if (file) {
+      const reader = new FileReader()
+
+      if (/\.(jpeg|png|gif|jpg)$/i.test(file.name)) {
+        reader.addEventListener(
+          'load',
+          () => {
+            // convert image file to base64 string
+            data = reader.result
+          },
+          false,
+        )
+      }
+
+      reader.readAsDataURL(file)
+      createChangeImage(selectedObjects, data, pictureType)
+    }
+  }
+
+  async function changeImageLink(event: React.KeyboardEvent<HTMLInputElement>) {
+    let data: string = ''
+    const pictureType = 'link'
+    if (event.key === 'Enter' && event.currentTarget.value) {
+      data = event.currentTarget.value
+    }
+
+    createChangeImage(selectedObjects, data, pictureType)
+  }
 
   return (
     <div className={styles.toolbar}>
@@ -139,7 +173,15 @@ function ToolBar() {
           }}
         />
       </div>
-      <input type="file" accept="image/png, image/jpeg" />
+      <input
+        type="file"
+        accept="image/png, image/jpeg"
+        onChange={(event) => changeImageFile(event)}
+      />
+      <div>
+        <label>Link</label>
+        <input type="text" onKeyDown={(event) => changeImageLink(event)} />
+      </div>
     </div>
   )
 }

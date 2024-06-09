@@ -17,6 +17,7 @@ enum EditorActions {
   CHANGE_TEXT_BOLD = 'CHANGE_TEXT_BOLD',
   CHANGE_TEXT_ITALIC = 'CHANGE_TEXT_ITALIC',
   CHANGE_TEXT_DECORATION = 'CHANGE_TEXT_DECORATION',
+  CHANGE_PICTURE = 'CHANGE_PICTURE',
 }
 
 type AddTextBlockAction = {
@@ -110,6 +111,15 @@ type ChangeTextDecorationAction = {
   type: EditorActions.CHANGE_TEXT_DECORATION
 }
 
+type ChangePictureAction = {
+  type: EditorActions.CHANGE_PICTURE
+  payload: {
+    ids: string[]
+    data: string
+    pictureType: string
+  }
+}
+
 type Action =
   | AddTextBlockAction
   | DeleteTextBlockAction
@@ -126,5 +136,6 @@ type Action =
   | ChangeTextItalicAction
   | ChangeTextDecorationAction
   | ChangeBackgroundColorAction
+  | ChangePictureAction
 
 export { EditorActions, type Action, type UpdateSettingsAction }

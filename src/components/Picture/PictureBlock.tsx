@@ -13,10 +13,6 @@ function PictureBlock(props: PictureBlockProps) {
     pictureBlock: { data },
   } = props
 
-  // не будет работать resize, потому что localPosition внутри SelectedBlock, он нужен здесь
-
-  // const [localPosition, setLocalPosition] = useState(objectInfo.position)
-
   return (
     <SelectedBlock
       {...props}
