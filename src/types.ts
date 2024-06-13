@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 type Filter = 'red' | 'green' | 'blue' | 'whiteBlack'
 
 //если пустой канвас, то значения null
@@ -26,7 +25,7 @@ type ObjectType = {
 
 type PictureType = ObjectType & {
   type: 'picture'
-  pictureType: 'link' | 'base64'
+  pictureType: string
   data: string
 }
 

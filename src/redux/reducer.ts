@@ -161,7 +161,6 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
             backgroundColor: action.payload.backgroundColor,
           }
         }
-
         return object
       })
 
@@ -370,72 +369,22 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
     }
     case EditorActions.CHANGE_PICTURE: {
       const newObjects = state.canvas.objects.map((object) => {
-        // console.log(action.payload.pictureType)
         if (
           state.selectBlock.includes(object.id) &&
           object.type === 'picture'
         ) {
-          if (
-            action.payload.pictureType === object.pictureType &&
-            action.payload.pictureType === 'base64'
-          ) {
-            console.log(1111111111111111)
-            console.log(object.pictureType)
-            return {
-              ...object,
-              data: action.payload.data,
-              pictureType: 'base64',
-            }
-          } else if (
-            action.payload.pictureType === object.pictureType &&
-            action.payload.pictureType === 'link'
-          ) {
-            console.log(22222222222222)
-            console.log(object.pictureType)
-            return {
-              ...object,
-              data: action.payload.data,
-              pictureType: 'link',
-            }
-          } else if (
-            action.payload.pictureType !== object.pictureType &&
-            action.payload.pictureType === 'link'
-          ) {
-            console.log(5555555)
-            console.log(object.pictureType)
-            return {
-              ...object,
-              data: action.payload.data,
-              pictureType: 'link',
-            }
-          } else if (
-            action.payload.pictureType !== object.pictureType &&
-            action.payload.pictureType === 'base64'
-          ) {
-            console.log(6666)
-            console.log(object.pictureType)
-            return {
-              ...object,
-              data: action.payload.data,
-              pictureType: 'base64',
-            }
-          } else {
-            console.log(3333333333333)
-            return {
-              ...object,
-              data: action.payload.data,
-            }
+          return {
+            ...object,
+            data: action.payload.data,
+            pictureType: action.payload.pictureType,
           }
         } else {
-          console.log(444444444444)
           return {
             ...object,
             data: action.payload.data,
           }
         }
       })
-
-      console.log('new', newObjects)
 
       const newState = {
         ...state,

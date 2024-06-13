@@ -18,13 +18,6 @@ function createDeleteBlockAction() {
   }
 }
 
-// function createChangeTextAction(newText: string) {
-//   return {
-//     type: EditorActions.CHANGE_TEXT,
-//     payload: newText,
-//   }
-// }
-
 function createChangeSelectionAction(blockId: string) {
   return {
     type: EditorActions.CHANGE_SELECTION,

@@ -28,14 +28,14 @@ function ToolBar() {
           'load',
           () => {
             // convert image file to base64 string
-            data = reader.result
+            data = reader.result as string
+            createChangeImage(selectedObjects, data, pictureType)
           },
           false,
         )
       }
 
       reader.readAsDataURL(file)
-      createChangeImage(selectedObjects, data, pictureType)
     }
   }
 
