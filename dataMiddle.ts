@@ -89,3 +89,5 @@ const newCanvas: EditorType = {
 //текст короткий длинный
 //картинки все виды
 //холст где все
+
+export { newCanvas }

@@ -1,3 +1,4 @@
+import { EditorType } from '../types'
 import { EditorActions, UpdateSettingsAction } from './actions'
 
 function createAddTextBlockAction() {
@@ -54,6 +55,15 @@ function createChangeBackgroundColorAction(
     type: EditorActions.CHANGE_BACKGROUND_COLOR,
     payload: {
       ids: blocksIds,
+      backgroundColor: backgroundColor,
+    },
+  }
+}
+
+function createChangeBackgroundCanvasColorAction(backgroundColor: string) {
+  return {
+    type: EditorActions.CHANGE_BACKGROUND_CANVAS_COLOR,
+    payload: {
       backgroundColor: backgroundColor,
     },
   }
@@ -128,11 +138,40 @@ function createChangeImage(
   }
 }
 
+function createChangeImageCanvas(data: string, type: string) {
+  return {
+    type: EditorActions.CHANGE_PICTURE_CANVAS,
+    payload: {
+      data: data,
+      pictureType: type,
+    },
+  }
+}
+
+function createChangeCanvasSize(width: number, height: number) {
+  return {
+    type: EditorActions.CHANGE_CANVAS_SIZE,
+    payload: {
+      width: width,
+      height: height,
+    },
+  }
+}
+
+function createOpenNewEditor(newEditor: EditorType) {
+  console.log(newEditor)
+  return {
+    type: EditorActions.OPEN_NEW_EDITOR,
+    payload: {
+      editor: newEditor,
+    },
+  }
+}
+
 export {
   createAddTextBlockAction,
   createAddPictureBlockAction,
   createDeleteBlockAction,
-  // createChangeTextAction,
   createChangeSelectionAction,
   createChangeSettingsAction,
   createChangeColorAction,
@@ -145,4 +184,8 @@ export {
   createChangeTextItalicAction,
   createChangeTextDecorationAction,
   createChangeImage,
+  createChangeBackgroundCanvasColorAction,
+  createChangeImageCanvas,
+  createChangeCanvasSize,
+  createOpenNewEditor,
 }

@@ -13,6 +13,8 @@ function ToolBar() {
     createChangeTextFontFamily,
     createSelectFigureType,
     createChangeImage,
+    createChangeBackgroundCanvasColorAction,
+    createChangeImageCanvas,
   } = useAppActions()
   const selectedObjects = useAppSelector((state) => state.editor.selectBlock)
 
@@ -47,6 +49,43 @@ function ToolBar() {
     }
 
     createChangeImage(selectedObjects, data, pictureType)
+  }
+
+  async function changeImageLinkCanvas(
+    event: React.KeyboardEvent<HTMLInputElement>,
+  ) {
+    let data: string = ''
+    const type = 'link'
+    if (event.key === 'Enter' && event.currentTarget.value) {
+      data = event.currentTarget.value
+    }
+
+    createChangeImageCanvas(data, type)
+  }
+
+  async function changeImageFileCanvas(
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) {
+    const file = event.target.files ? event.target.files[0] : null
+    let data: string | null | ArrayBuffer = ''
+    const type = 'base64'
+    if (file) {
+      const reader = new FileReader()
+
+      if (/\.(jpeg|png|gif|jpg)$/i.test(file.name)) {
+        reader.addEventListener(
+          'load',
+          () => {
+            // convert image file to base64 string
+            data = reader.result as string
+            createChangeImageCanvas(data, type)
+          },
+          false,
+        )
+      }
+
+      reader.readAsDataURL(file)
+    }
   }
 
   return (
@@ -181,6 +220,43 @@ function ToolBar() {
       <div>
         <label>Link</label>
         <input type="text" onKeyDown={(event) => changeImageLink(event)} />
+      </div>
+      <div>
+        <label>Background canvas color: </label>
+        <input
+          type="color"
+          id="backgroundCanvas"
+          onInput={(event: React.FormEvent<HTMLInputElement>) => {
+            createChangeBackgroundCanvasColorAction(event.currentTarget.value)
+          }}
+        />
+      </div>
+      <div>
+        <label>Background Canvas Link</label>
+        <input
+          type="text"
+          onKeyDown={(event) => changeImageLinkCanvas(event)}
+        />
+      </div>
+      <div>
+        <label>Background Canvas File</label>
+        <input
+          type="file"
+          accept="image/png, image/jpeg"
+          onChange={(event) => changeImageFileCanvas(event)}
+        />
+      </div>
+      <div>
+        <label>Canvas Size</label>
+        <input type="text" id="width" />
+        <label> x </label>
+        <input type="text" id="height" />
+        <Button
+          buttonBlock={{
+            text: 'Применить',
+            button: ButtonType.buttonCanvasSize,
+          }}
+        />
       </div>
     </div>
   )

@@ -14,7 +14,13 @@ function Top() {
         <Button
           buttonBlock={{
             text: 'Save',
-            button: ButtonType.buttonSave,
+            button: ButtonType.buttonSaveJSON,
+          }}
+        />
+        <Button
+          buttonBlock={{
+            text: 'Open',
+            button: ButtonType.buttonOpenJSON,
           }}
         />
       </div>

@@ -1,7 +1,11 @@
 import React from 'react'
 import styles from './button.module.css'
 import { ButtonType } from './types'
-import { useAppActions } from './redux/hooks'
+import { useAppActions, useAppSelector } from './redux/hooks'
+import SaveJSON from './utils/SaveJSON'
+import OpenJSON from './utils/OpenJSON'
+
+// import newCanvas from './dataMiddle'
 
 type ButtonBlockProps = {
   buttonBlock: {
@@ -19,7 +23,26 @@ function Button(props: ButtonBlockProps) {
     createChangeTextBoldAction,
     createChangeTextItalicAction,
     createChangeTextDecorationAction,
+    createChangeCanvasSize,
+    // createOpenNewEditor,
   } = useAppActions()
+
+  function createButtonChangeCanvasSize() {
+    const width: number = +(
+      document.getElementById('width') as HTMLInputElement
+    ).value
+    const height: number = +(
+      document.getElementById('height') as HTMLInputElement
+    ).value
+    createChangeCanvasSize(width, height)
+  }
+  // const createOpenNewEditor: (newEditor: EditorType) => Action
+  // function OpenAJSON() {
+  //   // OpenJSON(newEditor)
+  //   createOpenNewEditor(newEditor)
+  // }
+
+  const editor = useAppSelector((state) => state.editor)
 
   switch (props.buttonBlock.button) {
     case ButtonType.buttonText:
@@ -46,12 +69,31 @@ function Button(props: ButtonBlockProps) {
           </button>
         </div>
       )
-    case ButtonType.buttonSave:
+    case ButtonType.buttonSaveJSON:
       return (
         <div>
-          <button className={styles.saveButton}>
-            {props.buttonBlock.text}
-          </button>
+          <button
+            className={styles.saveButton}
+            onClick={() => SaveJSON(editor)}
+          ></button>
+        </div>
+      )
+    case ButtonType.buttonOpenJSON:
+      return (
+        <div>
+          <button
+            className={styles.saveButton}
+            onClick={() => OpenJSON()}
+          ></button>
+        </div>
+      )
+    case ButtonType.buttonSaveIMG:
+      return (
+        <div>
+          <button
+            className={styles.saveButton}
+            onClick={() => SaveIMG()}
+          ></button>
         </div>
       )
     case ButtonType.buttonAddText:
@@ -126,6 +168,17 @@ function Button(props: ButtonBlockProps) {
           <button
             className={styles.textAddTextButton}
             onClick={() => createChangeTextDecorationAction()}
+          >
+            {props.buttonBlock.text}
+          </button>
+        </div>
+      )
+    case ButtonType.buttonCanvasSize:
+      return (
+        <div>
+          <button
+            className={styles.textAddTextButton}
+            onClick={() => createButtonChangeCanvasSize()}
           >
             {props.buttonBlock.text}
           </button>

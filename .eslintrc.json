@@ -26,6 +26,8 @@
         "prettier/prettier": "error",
         "no-duplicate-imports": "error",
         "no-self-compare": "error",
-        "no-use-before-define": "error"
+        "no-use-before-define": "error",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error"
     }
 }

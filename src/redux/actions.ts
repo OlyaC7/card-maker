@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { PositionType, SizeType, ArtType } from '../types'
+import { PositionType, SizeType, ArtType, EditorType } from '../types'
 
 enum EditorActions {
   ADD_TEXTBLOCK = 'ADD_TEXTBLOCK',
@@ -18,6 +17,10 @@ enum EditorActions {
   CHANGE_TEXT_ITALIC = 'CHANGE_TEXT_ITALIC',
   CHANGE_TEXT_DECORATION = 'CHANGE_TEXT_DECORATION',
   CHANGE_PICTURE = 'CHANGE_PICTURE',
+  CHANGE_BACKGROUND_CANVAS_COLOR = 'CHANGE_BACKGROUND_CANVAS_COLOR',
+  CHANGE_PICTURE_CANVAS = 'CHANGE_PICTURE_CANVAS',
+  CHANGE_CANVAS_SIZE = 'CHANGE_CANVAS_SIZE',
+  OPEN_NEW_EDITOR = 'OPEN_NEW_EDITOR',
 }
 
 type AddTextBlockAction = {
@@ -71,6 +74,13 @@ type ChangeBackgroundColorAction = {
   }
 }
 
+type ChangeBackgroundCanvasColorAction = {
+  type: EditorActions.CHANGE_BACKGROUND_CANVAS_COLOR
+  payload: {
+    backgroundColor: string
+  }
+}
+
 type ChangeTextFontSizeAction = {
   type: EditorActions.CHANGE_TEXT_FONT_SIZE
   payload: {
@@ -120,6 +130,29 @@ type ChangePictureAction = {
   }
 }
 
+type ChangePictureCanvasAction = {
+  type: EditorActions.CHANGE_PICTURE_CANVAS
+  payload: {
+    data: string
+    type: string
+  }
+}
+
+type ChangeCanvasSizeAction = {
+  type: EditorActions.CHANGE_CANVAS_SIZE
+  payload: {
+    width: number
+    height: number
+  }
+}
+
+type OpenNewEditor = {
+  type: EditorActions.OPEN_NEW_EDITOR
+  payload: {
+    editor: EditorType
+  }
+}
+
 type Action =
   | AddTextBlockAction
   | DeleteTextBlockAction
@@ -137,5 +170,9 @@ type Action =
   | ChangeTextDecorationAction
   | ChangeBackgroundColorAction
   | ChangePictureAction
+  | ChangeBackgroundCanvasColorAction
+  | ChangePictureCanvasAction
+  | ChangeCanvasSizeAction
+  | OpenNewEditor
 
 export { EditorActions, type Action, type UpdateSettingsAction }

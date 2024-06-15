@@ -32,6 +32,7 @@ function Canvas() {
         height: settings?.size.height,
         background: settings?.background.data,
       }}
+      id="canvas"
     >
       {objects?.map((object, index) => {
         const selected = selectedObjects.includes(object.id)

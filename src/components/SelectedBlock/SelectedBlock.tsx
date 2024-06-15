@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { ReactNode, useEffect, useRef } from 'react'
 import styles from './SelectedBlock.module.css'
 import { BorderSelected } from './SelectedBorder/SelectedBorder'

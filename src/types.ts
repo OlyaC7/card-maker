@@ -1,9 +1,7 @@
 type Filter = 'red' | 'green' | 'blue' | 'whiteBlack'
 
-//если пустой канвас, то значения null
-
 type BackgroundType = {
-  type: 'link' | 'base64' | 'color'
+  type: string
   data: string
 }
 
@@ -70,7 +68,7 @@ type Template = {
 
 type EditorType = {
   canvas: CanvasType
-  templates: Template
+  templates: Template[]
   selectBlock: Array<string>
 }
 
@@ -87,15 +85,16 @@ enum ButtonType {
   buttonAddText,
   buttonPicture,
   buttonFigure,
-  buttonUndo,
-  buttonSave,
-  buttonRedo,
+  buttonSaveJSON,
+  buttonOpenJSON,
   buttonAddPicture,
   buttonDeleteBlock,
   buttonAddFigure,
   buttonChangeTextBold,
   buttonChangeTextItalic,
   buttonChangeTextDecoration,
+  buttonCanvasSize,
+  buttonSaveIMG,
 }
 
 export type {

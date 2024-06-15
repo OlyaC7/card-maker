@@ -11,6 +11,7 @@ import newCanvas from '../dataMiddle'
 import { generateRandomId } from '../utils/generateRandomId'
 
 const editorReducer = (state: EditorType = newCanvas, action: Action) => {
+  console.log(action.type)
   switch (action.type) {
     case EditorActions.ADD_TEXTBLOCK: {
       const newText: TextType = {
@@ -173,6 +174,19 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
       }
       return newState
     }
+    case EditorActions.CHANGE_BACKGROUND_CANVAS_COLOR: {
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          background: {
+            type: 'color',
+            data: action.payload.backgroundColor,
+          },
+        },
+      }
+      return newState
+    }
     case EditorActions.CHANGE_TEXT_FONT_SIZE: {
       const newObjects = state.canvas.objects.map((object) => {
         if (action.payload.ids.includes(object.id) && object.type === 'text') {
@@ -231,7 +245,6 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
 
         return object
       })
-      console.log(newObjects)
 
       const newState = {
         ...state,
@@ -394,6 +407,41 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
         },
       }
 
+      return newState
+    }
+    case EditorActions.CHANGE_PICTURE_CANVAS: {
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          background: {
+            type: action.payload.type,
+            data: `center/100% no-repeat URL(${action.payload.data})`,
+          },
+        },
+      }
+      return newState
+    }
+    case EditorActions.CHANGE_CANVAS_SIZE: {
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          size: {
+            width: action.payload.width,
+            height: action.payload.height,
+          },
+        },
+      }
+      return newState
+    }
+    case EditorActions.OPEN_NEW_EDITOR: {
+      console.log('77777', action.payload.editor)
+      const newState = {
+        ...state,
+        state: action.payload.editor,
+      }
+      console.log('54654654', newState)
       return newState
     }
     default:
