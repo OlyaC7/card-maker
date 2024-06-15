@@ -105,72 +105,13 @@
 .saveButton {
     background-color: #36364E;
     color: #FFFFFF;
-    font-size: 15px;
+    font-size: 14px;
     padding: 10px 16px;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .saveButton:hover {
     background-color: #22223A;
-}
-
-.undoButton {
-    background: none;
-    color: #92989E;
-    font-size: 15px;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    padding-left: 25px;
-    margin: 8px 20px;
-}
-
-.undoButton::before {
-    content: '';
-    position: absolute;
-    display: block;
-    background: url('../src/img/undoLogo.svg');
-    width: 16px;
-    height: 16px;
-    left: 0;
-}
-
-.undoButton:hover {
-    color: #FFFFFF;
-}
-
-
-.undoButton:hover.undoButton::before {
-    background: url('../src/img/undoLogoWhite.svg');
-}
-
-.redoButton {
-    background: none;
-    color: #92989E;
-    font-size: 15px;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    padding-left: 25px;
-    margin-top: 8px;
-}
-
-.redoButton::before {
-    content: '';
-    position: absolute;
-    display: block;
-    background: url('../src/img/redoLogo.svg');
-    width: 16px;
-    height: 16px;
-    left: 0;
-}
-
-.redoButton:hover {
-    color: #FFFFFF;
-}
-
-
-.redoButton:hover.redoButton::before {
-    background: url('../src/img/redoLogoWhite.svg');
 }

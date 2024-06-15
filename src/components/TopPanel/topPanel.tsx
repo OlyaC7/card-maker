@@ -10,17 +10,23 @@ function Top() {
           Card<span className={styles.logoSecond}>Maker</span>
         </p>
       </div>
-      <div>
+      <div className={styles.saveBlock}>
         <Button
           buttonBlock={{
-            text: 'Save',
+            text: 'Save JSON',
             button: ButtonType.buttonSaveJSON,
           }}
         />
         <Button
           buttonBlock={{
-            text: 'Open',
+            text: 'Open JSON',
             button: ButtonType.buttonOpenJSON,
+          }}
+        />
+        <Button
+          buttonBlock={{
+            text: 'Save IMG',
+            button: ButtonType.buttonSaveIMG,
           }}
         />
       </div>

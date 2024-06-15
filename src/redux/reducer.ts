@@ -11,7 +11,6 @@ import newCanvas from '../dataMiddle'
 import { generateRandomId } from '../utils/generateRandomId'
 
 const editorReducer = (state: EditorType = newCanvas, action: Action) => {
-  console.log(action.type)
   switch (action.type) {
     case EditorActions.ADD_TEXTBLOCK: {
       const newText: TextType = {
@@ -394,7 +393,6 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
         } else {
           return {
             ...object,
-            data: action.payload.data,
           }
         }
       })

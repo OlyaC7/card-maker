@@ -4,6 +4,7 @@ import { ButtonType } from './types'
 import { useAppActions, useAppSelector } from './redux/hooks'
 import SaveJSON from './utils/SaveJSON'
 import OpenJSON from './utils/OpenJSON'
+import SaveIMG from './utils/SaveIMG'
 
 // import newCanvas from './dataMiddle'
 
@@ -75,25 +76,25 @@ function Button(props: ButtonBlockProps) {
           <button
             className={styles.saveButton}
             onClick={() => SaveJSON(editor)}
-          ></button>
+          >
+            {props.buttonBlock.text}
+          </button>
         </div>
       )
     case ButtonType.buttonOpenJSON:
       return (
         <div>
-          <button
-            className={styles.saveButton}
-            onClick={() => OpenJSON()}
-          ></button>
+          <button className={styles.saveButton} onClick={() => OpenJSON()}>
+            {props.buttonBlock.text}
+          </button>
         </div>
       )
     case ButtonType.buttonSaveIMG:
       return (
         <div>
-          <button
-            className={styles.saveButton}
-            onClick={() => SaveIMG()}
-          ></button>
+          <button className={styles.saveButton} onClick={() => SaveIMG()}>
+            {props.buttonBlock.text}
+          </button>
         </div>
       )
     case ButtonType.buttonAddText:
