@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { FigureType } from '../../types'
 import Rect from './Rect/Rect'
 import Star from './Star/Star'
-import Arrow from './Arrow/Arrow'
+import Line from './Line/Line'
 import Circle from './Circle/Circle'
 import {
   SelectedBlock,
@@ -45,7 +45,7 @@ function FigureBlock(props: FigureBlockProps) {
     case 3:
       content = (
         <div id={id}>
-          <Arrow arrowType={props.figureBlock} />
+          <Line lineType={props.figureBlock} />
         </div>
       )
       break

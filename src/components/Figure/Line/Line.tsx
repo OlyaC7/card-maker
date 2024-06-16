@@ -1,11 +1,11 @@
 import React from 'react'
 import { FigureType } from '../../../types'
-type arrowBlockType = {
-  arrowType: FigureType
+type lineBlockType = {
+  lineType: FigureType
 }
 
-function Arrow(props: arrowBlockType) {
-  const { size, fill } = props.arrowType
+function Line(props: lineBlockType) {
+  const { size, fill } = props.lineType
   return (
     <div style={{ width: size.width, height: size.height }}>
       <svg
@@ -20,4 +20,4 @@ function Arrow(props: arrowBlockType) {
   )
 }
 
-export default Arrow
+export default Line
