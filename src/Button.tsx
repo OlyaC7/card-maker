@@ -26,6 +26,7 @@ function Button(props: ButtonBlockProps) {
     createChangeTextDecorationAction,
     createChangeCanvasSize,
     // createOpenNewEditor,
+    createOpenNewEditor,
   } = useAppActions()
 
   function createButtonChangeCanvasSize() {
@@ -84,7 +85,10 @@ function Button(props: ButtonBlockProps) {
     case ButtonType.buttonOpenJSON:
       return (
         <div>
-          <button className={styles.saveButton} onClick={() => OpenJSON()}>
+          <button
+            className={styles.saveButton}
+            onClick={() => OpenJSON(createOpenNewEditor)}
+          >
             {props.buttonBlock.text}
           </button>
         </div>

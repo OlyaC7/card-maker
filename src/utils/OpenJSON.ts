@@ -1,7 +1,8 @@
 import { createOpenNewEditor } from '../redux/actionCreators'
 import { EditorType } from '../types'
+import { Action } from '../redux/actions'
 
-function OpenJSON() {
+function OpenJSON(setOpenedTemplate: (arg0: EditorType) => Action) {
   const a = document.createElement('input')
   a.type = 'file'
   a.id = 'file-js-open'
@@ -24,7 +25,8 @@ function OpenJSON() {
             newEditor?.templates
           ) {
             console.log(newEditor)
-            createOpenNewEditor(newEditor)
+            console.log(createOpenNewEditor(newEditor))
+            setOpenedTemplate(newEditor)
           } else {
             alert('JSON-файл содержит не все нужные поля')
           }

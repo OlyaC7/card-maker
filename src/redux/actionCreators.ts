@@ -1,5 +1,5 @@
 import { EditorType } from '../types'
-import { EditorActions, UpdateSettingsAction } from './actions'
+import { Action, EditorActions, UpdateSettingsAction } from './actions'
 
 function createAddTextBlockAction() {
   return {
@@ -158,13 +158,10 @@ function createChangeCanvasSize(width: number, height: number) {
   }
 }
 
-function createOpenNewEditor(newEditor: EditorType) {
-  console.log(newEditor)
+function createOpenNewEditor(newEditor: EditorType): Action {
   return {
     type: EditorActions.OPEN_NEW_EDITOR,
-    payload: {
-      editor: newEditor,
-    },
+    payload: newEditor,
   }
 }
 

@@ -148,9 +148,7 @@ type ChangeCanvasSizeAction = {
 
 type OpenNewEditor = {
   type: EditorActions.OPEN_NEW_EDITOR
-  payload: {
-    editor: EditorType
-  }
+  payload: EditorType
 }
 
 type Action =

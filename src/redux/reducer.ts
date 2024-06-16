@@ -434,12 +434,7 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
       return newState
     }
     case EditorActions.OPEN_NEW_EDITOR: {
-      console.log('77777', action.payload.editor)
-      const newState = {
-        ...state,
-        state: action.payload.editor,
-      }
-      console.log('54654654', newState)
+      const newState = action.payload
       return newState
     }
     default:
