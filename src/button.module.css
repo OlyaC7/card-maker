@@ -6,6 +6,11 @@ button {
     font-size: 16px;
     padding: 4px 7px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ee5c33cc;
 }
 
 .saveButton {
@@ -42,6 +47,7 @@ button {
 
 .boldButton:hover {
     background-image: url('/src/img/bold-orange.svg');
+    background-color: unset;
 }
 
 
@@ -61,6 +67,7 @@ button {
 
 .italicButton:hover {
     background-image: url('/src/img/italic-orange.svg');
+    background-color: unset;
 }
 
 .underlineButtonBlock {
@@ -79,6 +86,7 @@ button {
 
 .underlineButton:hover {
     background-image: url('/src/img/underline-orange.svg');
+    background-color: unset;
 }
 
 .deleteButton {
@@ -93,6 +101,7 @@ button {
 
 .deleteButton:hover {
     background-image: url('/src/img/trash-orange.svg');
+    background-color: unset;
 }
 
 .canvasSizeButtonBlock {
