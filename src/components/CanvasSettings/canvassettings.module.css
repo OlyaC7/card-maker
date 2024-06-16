@@ -1,4 +1,69 @@
-.toolbar {
-    background-color: #F0F0F0;
-    width: 300px;
+.canvasSettings {
+    background-color: #d7d7d7;
+    height: 50px;
+    padding: 10px 20px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.canvasFileLabel {
+    width: 26px;
+    height: 26px;
+    background-image: url('/src/img/download.svg');
+    background-size: 26px;
+    background-repeat: no-repeat;
+    background-color: unset;
+    display: inline-block;
+}
+
+.canvasFileLabel:hover {
+    background-image: url('/src/img/download-orange.svg');
+}
+
+.canvasFile {
+    opacity: 0;
+    width: 32px;
+    margin: 0;
+    padding: 0;
+    height: 32px;
+}
+
+.canvasLink {
+    border: none;
+    font-size: 16px;
+    padding: 4px 5px;
+    border-radius: 5px;
+    width: 170px;
+}
+
+.canvasColorLabel {
+    width: 32px;
+    height: 32px;
+    background-image: url('/src/img/color.svg');
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-color: unset;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.canvasColorBlock {
+    display: flex;
+}
+
+.canvasColor {
+    border: none;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    background-color: unset;
+}
+
+.canvasSize {
+    width: 70px;
+    border: none;
+    font-size: 16px;
+    padding: 4px 5px;
+    border-radius: 5px;
 }

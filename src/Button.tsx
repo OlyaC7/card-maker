@@ -6,8 +6,6 @@ import SaveJSON from './utils/SaveJSON'
 import OpenJSON from './utils/OpenJSON'
 import SaveIMG from './utils/SaveIMG'
 
-// import newCanvas from './dataMiddle'
-
 type ButtonBlockProps = {
   buttonBlock: {
     text: string
@@ -25,7 +23,6 @@ function Button(props: ButtonBlockProps) {
     createChangeTextItalicAction,
     createChangeTextDecorationAction,
     createChangeCanvasSize,
-    // createOpenNewEditor,
     createOpenNewEditor,
   } = useAppActions()
 
@@ -38,39 +35,10 @@ function Button(props: ButtonBlockProps) {
     ).value
     createChangeCanvasSize(width, height)
   }
-  // const createOpenNewEditor: (newEditor: EditorType) => Action
-  // function OpenAJSON() {
-  //   // OpenJSON(newEditor)
-  //   createOpenNewEditor(newEditor)
-  // }
 
   const editor = useAppSelector((state) => state.editor)
 
   switch (props.buttonBlock.button) {
-    case ButtonType.buttonText:
-      return (
-        <div>
-          <button className={styles.textButton}>
-            {props.buttonBlock.text}
-          </button>
-        </div>
-      )
-    case ButtonType.buttonPicture:
-      return (
-        <div>
-          <button className={styles.pictureButton}>
-            {props.buttonBlock.text}
-          </button>
-        </div>
-      )
-    case ButtonType.buttonFigure:
-      return (
-        <div>
-          <button className={styles.figureButton}>
-            {props.buttonBlock.text}
-          </button>
-        </div>
-      )
     case ButtonType.buttonSaveJSON:
       return (
         <div>
@@ -103,9 +71,9 @@ function Button(props: ButtonBlockProps) {
       )
     case ButtonType.buttonAddText:
       return (
-        <div>
+        <div className={styles.textButtonBlock}>
           <button
-            className={styles.textAddTextButton}
+            className={styles.textButton}
             onClick={() => createAddTextBlockAction()}
           >
             {props.buttonBlock.text}
@@ -114,9 +82,9 @@ function Button(props: ButtonBlockProps) {
       )
     case ButtonType.buttonAddPicture:
       return (
-        <div>
+        <div className={styles.textButtonBlock}>
           <button
-            className={styles.textAddTextButton}
+            className={styles.textButton}
             onClick={() => createAddPictureBlockAction()}
           >
             {props.buttonBlock.text}
@@ -127,7 +95,7 @@ function Button(props: ButtonBlockProps) {
       return (
         <div>
           <button
-            className={styles.textAddTextButton}
+            className={styles.deleteButton}
             onClick={() => createDeleteBlockAction()}
           >
             {props.buttonBlock.text}
@@ -136,9 +104,9 @@ function Button(props: ButtonBlockProps) {
       )
     case ButtonType.buttonAddFigure:
       return (
-        <div>
+        <div className={styles.textButtonBlock}>
           <button
-            className={styles.textAddTextButton}
+            className={styles.textButton}
             onClick={() => createAddFigureBlockAction()}
           >
             {props.buttonBlock.text}
@@ -147,9 +115,9 @@ function Button(props: ButtonBlockProps) {
       )
     case ButtonType.buttonChangeTextBold:
       return (
-        <div>
+        <div className={styles.boldButtonBlock}>
           <button
-            className={styles.textAddTextButton}
+            className={styles.boldButton}
             onClick={() => createChangeTextBoldAction()}
           >
             {props.buttonBlock.text}
@@ -158,9 +126,9 @@ function Button(props: ButtonBlockProps) {
       )
     case ButtonType.buttonChangeTextItalic:
       return (
-        <div>
+        <div className={styles.italicButtonBlock}>
           <button
-            className={styles.textAddTextButton}
+            className={styles.italicButton}
             onClick={() => createChangeTextItalicAction()}
           >
             {props.buttonBlock.text}
@@ -169,9 +137,9 @@ function Button(props: ButtonBlockProps) {
       )
     case ButtonType.buttonChangeTextDecoration:
       return (
-        <div>
+        <div className={styles.underlineButtonBlock}>
           <button
-            className={styles.textAddTextButton}
+            className={styles.underlineButton}
             onClick={() => createChangeTextDecorationAction()}
           >
             {props.buttonBlock.text}
@@ -180,9 +148,9 @@ function Button(props: ButtonBlockProps) {
       )
     case ButtonType.buttonCanvasSize:
       return (
-        <div>
+        <div className={styles.canvasSizeButtonBlock}>
           <button
-            className={styles.textAddTextButton}
+            className={styles.canvasSizeButton}
             onClick={() => createButtonChangeCanvasSize()}
           >
             {props.buttonBlock.text}

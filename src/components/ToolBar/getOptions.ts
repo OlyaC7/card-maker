@@ -33,6 +33,10 @@ const optionsFamily: string[] = [
   'Arial Black',
 
   'Comic Sans MS',
+
+  'Caveat',
+
+  'Dancing Script',
 ]
 
 const optionsFigureType: string[] = ['Rect', 'Circle', 'Star', 'Line', 'Sun']

@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
 
 .toppanel {
-    height: 30px;
+    height: 70px;
     background-color: #2C2C44;
     padding: 20px;
     display: flex;

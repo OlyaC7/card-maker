@@ -1,105 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital@0;1&display=swap');
-
-.button {
-    background-color: rgb(125, 145, 209);
+button {
+    background-color: #36364E;
     border: none;
-}
-
-.textButton {
-    font: 11px/1 'Lato', sans-serif;
-    cursor: pointer;
-    position: relative;
-    width: 86px;
-    height: 74px;
-    border: none;
-    color: #92989E;
-    background: none;
-    text-transform: uppercase;
-}
-
-.textButton::before {
-    content: '';
-    display: block;
-    background: url('../src/img/textLogo.svg');
-    width: 24px;
-    height: 24px;
-    text-align: center;
-    margin: 0 auto 5px;
-}
-
-.textButton:hover {
-    color: #ee5c33cc;
-    background-color: #F0F0F0;
-}
-
-.active {
-    background-color: #F0F0F0;
-    display: none;
-}
-
-.textButton:hover.textButton::before {
-    background: url('../src/img/textLogoOrange.svg');
-}
-
-.pictureButton {
-    font: 11px/1 'Lato', sans-serif;
-    cursor: pointer;
-    position: relative;
-    width: 86px;
-    height: 74px;
-    border: none;
-    color: #92989E;
-    background: none;
-    text-transform: uppercase;
-}
-
-
-.pictureButton::before {
-    content: '';
-    display: block;
-    background: url('../src/img/pictureLogo.svg');
-    width: 24px;
-    height: 24px;
-    text-align: center;
-    margin: 0 auto 5px;
-}
-
-.pictureButton:hover {
-    color: #ee5c33cc;
-}
-
-.pictureButton:hover.pictureButton::before {
-    background: url('../src/img/pictureLogoOrange.svg');
-}
-
-.figureButton {
-    font: 11px/1 'Lato', sans-serif;
-    cursor: pointer;
-    position: relative;
-    width: 86px;
-    height: 74px;
-    border: none;
-    color: #92989E;
-    background: none;
-    text-transform: uppercase;
-}
-
-.figureButton::before {
-    content: '';
-    display: block;
-    background: url('../src/img/elementsLogo.svg');
-    width: 24px;
-    height: 24px;
-    text-align: center;
-    margin: 0 auto 5px;
-}
-
-.figureButton:hover {
-    color: #ee5c33cc;
-}
-
-.figureButton:hover.figureButton::before {
-    background: url('../src/img/elementsLogoOrange.svg');
+    font-family: 'Roboto', sans-serif;
+    color: #FFFFFF;
+    font-size: 16px;
+    padding: 4px 7px;
+    border-radius: 5px;
 }
 
 .saveButton {
@@ -114,4 +20,82 @@
 
 .saveButton:hover {
     background-color: #22223A;
+}
+
+.textButtonBlock {
+    margin-bottom: 10px;
+}
+
+.boldButtonBlock {
+    display: inline-block;
+}
+
+.boldButton {
+    width: 32px;
+    height: 32px;
+    background-image: url('/src/img/bold.svg');
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-color: unset;
+    cursor: pointer;
+}
+
+.boldButton:hover {
+    background-image: url('/src/img/bold-orange.svg');
+}
+
+
+.italicButtonBlock {
+    display: inline-block;
+}
+
+.italicButton {
+    width: 32px;
+    height: 32px;
+    background-image: url('/src/img/italic.svg');
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-color: unset;
+    cursor: pointer;
+}
+
+.italicButton:hover {
+    background-image: url('/src/img/italic-orange.svg');
+}
+
+.underlineButtonBlock {
+    display: inline-block;
+}
+
+.underlineButton {
+    width: 32px;
+    height: 32px;
+    background-image: url('/src/img/underline.svg');
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-color: unset;
+    cursor: pointer;
+}
+
+.underlineButton:hover {
+    background-image: url('/src/img/underline-orange.svg');
+}
+
+.deleteButton {
+    width: 32px;
+    height: 32px;
+    background-image: url('/src/img/trash.svg');
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-color: unset;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background-image: url('/src/img/trash-orange.svg');
+}
+
+.canvasSizeButtonBlock {
+    display: inline-block;
+    margin-left: 5px;
 }

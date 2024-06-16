@@ -4,4 +4,6 @@
     overflow: hidden;
     width: 250px;
     height: 250px;
+    left: 15px;
+    margin: 50px auto;
 }
