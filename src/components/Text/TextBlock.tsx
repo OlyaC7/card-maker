@@ -5,6 +5,7 @@ import {
   SelectedBlock,
   SelectedBlockProps,
 } from '../SelectedBlock/SelectedBlock'
+import { useAppActions } from '../../redux/hooks'
 
 type TextBlockProps = Omit<SelectedBlockProps, 'component'> & {
   textBlock: TextType
@@ -29,13 +30,18 @@ function TextBlock(props: TextBlockProps) {
     updateSize,
   } = props
 
-  function changeText(event: React.MouseEvent) {
+  const { createChangeText } = useAppActions()
+
+  function changeTextBlock(event: React.MouseEvent) {
     const target = event.target as HTMLDivElement
     target.contentEditable = 'true'
     target.focus()
     document.addEventListener('keydown', (e) => {
       if (e.keyCode === 13) {
         target.removeAttribute('contenteditable')
+        console.log(target.innerText)
+        const a: string = target.innerText
+        createChangeText(a)
       }
     })
   }
@@ -49,6 +55,7 @@ function TextBlock(props: TextBlockProps) {
       changeSelection={changeSelection}
       component={
         <div
+          id="text"
           className={styles.textarea}
           style={{
             color,
@@ -59,7 +66,7 @@ function TextBlock(props: TextBlockProps) {
             fontWeight,
             textDecoration,
           }}
-          onMouseDown={changeText}
+          onMouseDown={changeTextBlock}
         >
           {text}
         </div>

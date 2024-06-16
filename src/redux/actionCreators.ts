@@ -165,6 +165,13 @@ function createOpenNewEditor(newEditor: EditorType): Action {
   }
 }
 
+function createChangeText(newText: string) {
+  return {
+    type: EditorActions.OPEN_NEW_EDITOR,
+    payload: newText,
+  }
+}
+
 export {
   createAddTextBlockAction,
   createAddPictureBlockAction,
@@ -185,4 +192,5 @@ export {
   createChangeImageCanvas,
   createChangeCanvasSize,
   createOpenNewEditor,
+  createChangeText,
 }

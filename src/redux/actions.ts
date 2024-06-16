@@ -40,6 +40,9 @@ type DeleteTextBlockAction = {
 
 type ChangeTextAction = {
   type: EditorActions.CHANGE_TEXT
+  payload: {
+    text: string
+  }
 }
 
 type ChangeSelectionAction = {

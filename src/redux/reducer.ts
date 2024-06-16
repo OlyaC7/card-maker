@@ -68,16 +68,16 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
       }
       return newState
     }
-    case EditorActions.CHANGE_TEXT: {
-      const newState = {
-        ...state,
-        canvas: {
-          ...state.canvas,
-          objects: [...state.canvas.objects],
-        },
-      }
-      return newState
-    }
+    // case EditorActions.CHANGE_TEXT: {
+    //   const newState = {
+    //     ...state,
+    //     canvas: {
+    //       ...state.canvas,
+    //       objects: [...state.canvas.objects],
+    //     },
+    //   }
+    //   return newState
+    // }
     case EditorActions.CHANGE_SELECTION: {
       const figureId = action.payload.id
 
@@ -435,6 +435,17 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
     }
     case EditorActions.OPEN_NEW_EDITOR: {
       const newState = action.payload
+      return newState
+    }
+    case EditorActions.CHANGE_TEXT: {
+      const newState = {
+        ...state,
+        canvas: {
+          ...state.canvas,
+          text: action.payload.text,
+        },
+      }
+      console.log(newState)
       return newState
     }
     default:
