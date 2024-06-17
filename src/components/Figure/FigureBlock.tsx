@@ -9,7 +9,7 @@ import {
   SelectedBlockProps,
 } from '../SelectedBlock/SelectedBlock'
 import Sun from './Sun/Sun'
-import Audi from './Audi/Audi'
+import Heart from './Heart/Heart'
 
 type FigureBlockProps = Omit<SelectedBlockProps, 'component'> & {
   figureBlock: FigureType
@@ -59,7 +59,7 @@ function FigureBlock(props: FigureBlockProps) {
     case 5:
       content = (
         <div id={id}>
-          <Audi audiType={props.figureBlock} />
+          <Heart heartType={props.figureBlock} />
         </div>
       )
       break

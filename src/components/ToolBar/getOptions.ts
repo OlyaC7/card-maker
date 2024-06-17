@@ -13,6 +13,12 @@ const optionsSize: string[] = [
   '32',
   '34',
   '36',
+  '38',
+  '40',
+  '52',
+  '55',
+  '60',
+  '72',
 ]
 
 const optionsFamily: string[] = [
@@ -39,6 +45,13 @@ const optionsFamily: string[] = [
   'Dancing Script',
 ]
 
-const optionsFigureType: string[] = ['Rect', 'Circle', 'Star', 'Line', 'Sun']
+const optionsFigureType: string[] = [
+  'Rect',
+  'Circle',
+  'Star',
+  'Line',
+  'Sun',
+  'Heart',
+]
 
 export { optionsSize, optionsFamily, optionsFigureType }

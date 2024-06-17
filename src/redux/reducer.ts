@@ -248,7 +248,7 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
     case EditorActions.ADD_FIGUREBLOCK: {
       const newFigure: FigureType = {
         type: 'figure',
-        fill: '#FFFFFF',
+        fill: '#f8f1f1',
         figureType: ArtType.Rect,
         stroke: '#FFFFFF',
         strokeWidth: '10',
@@ -258,8 +258,8 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
           y: 0,
         },
         size: {
-          width: 100,
-          height: 50,
+          width: 130,
+          height: 130,
         },
       }
 
