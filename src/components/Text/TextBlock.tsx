@@ -39,9 +39,8 @@ function TextBlock(props: TextBlockProps) {
     document.addEventListener('keydown', (e) => {
       if (e.keyCode === 13) {
         target.removeAttribute('contenteditable')
-        console.log(target.innerText)
-        const a: string = target.innerText
-        createChangeText(a)
+        const newText: string = target.innerText
+        createChangeText(newText)
       }
     })
   }

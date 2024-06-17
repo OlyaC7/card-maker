@@ -1,4 +1,3 @@
-import { createOpenNewEditor } from '../redux/actionCreators'
 import { EditorType } from '../types'
 import { Action } from '../redux/actions'
 
@@ -24,8 +23,6 @@ function OpenJSON(setOpenedTemplate: (arg0: EditorType) => Action) {
             newEditor?.selectBlock &&
             newEditor?.templates
           ) {
-            console.log(newEditor)
-            console.log(createOpenNewEditor(newEditor))
             setOpenedTemplate(newEditor)
           } else {
             alert('JSON-файл содержит не все нужные поля')
