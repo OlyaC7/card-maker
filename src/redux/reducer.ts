@@ -68,16 +68,6 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
       }
       return newState
     }
-    // case EditorActions.CHANGE_TEXT: {
-    //   const newState = {
-    //     ...state,
-    //     canvas: {
-    //       ...state.canvas,
-    //       objects: [...state.canvas.objects],
-    //     },
-    //   }
-    //   return newState
-    // }
     case EditorActions.CHANGE_SELECTION: {
       const figureId = action.payload.id
 
@@ -438,14 +428,24 @@ const editorReducer = (state: EditorType = newCanvas, action: Action) => {
       return newState
     }
     case EditorActions.CHANGE_TEXT: {
+      const newObjects = state.canvas.objects.map((object) => {
+        if (state.selectBlock.includes(object.id) && object.type === 'text') {
+          return {
+            ...object,
+            text: action.payload.text,
+          }
+        }
+
+        return object
+      })
+
       const newState = {
         ...state,
         canvas: {
           ...state.canvas,
-          text: action.payload.text,
+          objects: newObjects,
         },
       }
-      console.log(newState)
       return newState
     }
     default:

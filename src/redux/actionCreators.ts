@@ -167,8 +167,10 @@ function createOpenNewEditor(newEditor: EditorType): Action {
 
 function createChangeText(newText: string) {
   return {
-    type: EditorActions.OPEN_NEW_EDITOR,
-    payload: newText,
+    type: EditorActions.CHANGE_TEXT,
+    payload: {
+      text: newText,
+    },
   }
 }
 
